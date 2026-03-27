@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waterpolo Petrer</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="header">
+    <img src="imagenes/logo.sin.png" class="logo">
+    <h1>CLUB WATERPOLO PETRER</h1>
+    </div>
+    <p class="intro"> Bienvenidos al Club Waterpolo Petrer. Formación, competición y pasión por el waterpolo.</p>
+
+    <div class="contenedor">
+        <div class="card" onclick="mostrarSeccion('horarios')">Horarios</div>
+        <div class="card rojo" onclick="mostrarSeccion('equipos')">Equipos</div>
+        <div class="card" onclick="mostrarSeccion('galeria')">Galeria</div>
+        <div class="card rojo" onclick="mostrarSeccion('partidos')">Proximos Partidos</div>
+        <div class="card " onclick="mostrarSeccion('contacto')">Contacto</div>
+    </div>
+
+    <div id="contenido"></div>
+    <div id="lightbox" >
+        <span class="cerrar" onclick="cerrarImagen()">✖</span>
+        <span class="flecha izquierda" onclick="cambiarImagen(-1)">❮</span>
+        
+        <img id="imagenGrande">
+
+        <span class="flecha derecha" onclick="cambiarImagen(1)">❯</span>
+
+        <span id="contador"></span>
+    </div>
+   
+
+    <script src="index.js"></script>
+</body>
+</html>
+<!-- se ha quedado pillada la web sin funciones en los botones principales-->
