@@ -1,6 +1,6 @@
 
 html {
-    background: linear-gradient(to bottom, white, #504f4f);
+    background: linear-gradient(to bottom, white, #aaa9a9);
 }
 
 html, body {
@@ -24,7 +24,7 @@ html, body {
 body{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    background: linear-gradient(to bottom, white, #504f4f);
+    background: linear-gradient(to bottom, white, #aaa9a9);
     min-height: 100vh;
 }
 
@@ -32,6 +32,7 @@ h1{
     margin-top:40px;
     font-size: 40px;
 }
+
 
 .intro{
     margin-top: 10px;
@@ -77,6 +78,22 @@ h1{
     
     transform: scale(1.08);
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.ubicacion{
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.ubicacion p{
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .equipos{
