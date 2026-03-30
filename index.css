@@ -39,11 +39,16 @@ h1{
 }
 
 .contenedor{
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(6, 90px);
     gap: 40px;
-    margin-top: 60px;
+    justify-content: center;
+    margin-top: 80px;
     flex-wrap: wrap;
+}
+
+.card{
+    grid-column: span 2;
 }
 
 .card{
