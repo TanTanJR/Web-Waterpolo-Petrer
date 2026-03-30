@@ -77,7 +77,7 @@ function mostrarSeccion(seccion){
         <li>Email: club@waterpolo.com</li>
         <li>Teléfono: 625141778 - 667455600</li>
         <li>Nuestro → <a href="https://www.instagram.com/waterpolopetrer/" target="_blank" class="btn-instagram">
-        📸 Ver Instagram
+        📸 Instagram
     </a></li>
         
 
@@ -89,6 +89,7 @@ function mostrarSeccion(seccion){
 
     function cerrarImagen(){
         document.getElementById("lightbox").style.display = "none";
+      
     }
 
 function actualizarContador(){
@@ -104,6 +105,8 @@ function abrirImagen(index){
 
     imagen.src = "imagenes/galeria/" + listaImagenes[imagenActual];
     lightbox.style.display = "flex";
+
+   
 
     let miniaturas = "<div class='miniaturas'>";
 
