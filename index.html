@@ -11,68 +11,118 @@
     <img src="imagenes/logo.sin.png" class="logo">
     <h1>CLUB WATERPOLO PETRER</h1>
     </div>
+    <div class="hero">
+    <div class="hero-overlay">
+        <h2>Bienvenidos al Club Waterpolo Petrer</h2>
+        <p>Formación, competición y pasión por el waterpolo</p>
+        <button onclick="mostrarSeccion('contacto')">Únete al club</button>
+    </div>
+</div>
 
-    <div class="sidebar izquierda">
-        
-        
-    <div class="sponsors-track">
-        <div class="sponsor">
-            <img src="imagenes/sponsors/alvarez.jpg" alt="Patrocinador 1">
-        </div>
-        <div class="sponsor">
-            <img src="imagenes/sponsors/xocolate.png" alt="Patrocinador 2">
-        </div>
-        <div class="sponsor">
-            <img src="imagenes/sponsors/lacasadelperol.jpg" alt="Patrocinador 3">
-        </div>
-        <div class="sponsor">
-            <img src="imagenes/sponsors/clinicamartin.png" alt="Patrocinador 4">
-        </div>
-        <div class="sponsor">
-            <img src="imagenes/sponsors/luisjuan.jpg" alt="Patrocinador 5">
-        </div>
-        <div class="sponsor"><!-- repetimos patrocinadores para que salgan bien en el carrusel-->
-            <img src="imagenes/sponsors/alvarez.jpg" alt="Patrocinador 1">
-        </div>
-        <div class="sponsor">
-            <img src="imagenes/sponsors/xocolate.png" alt="Patrocinador 2">
-        </div>
-         <div class="sponsor">
-            <img src="imagenes/sponsors/lacasadelperol.jpg" alt="Patrocinador 3">
-        </div>
-        <div class="sponsor">
-            <img src="imagenes/sponsors/clinicamartin.png" alt="Patrocinador 4">
-        </div>
-        <div class="sponsor">
-            <img src="imagenes/sponsors/luisjuan.jpg" alt="Patrocinador 5">
-        </div>
-        
+    <div class="menu-movil" onclick="toggleMenu()">
+        ☰ Menú
+
     </div>
-    </div>
-        
     
+
+  <div class="layout-principal">
+
+    <!-- Sidebar izquierda patrocinadores -->
+    <div class="sidebar izquierda">
+        <div class="sponsors-track">
+            <div class="sponsor">
+                <img src="imagenes/sponsors/alvarez.jpg" alt="Patrocinador 1">
+            </div>
+            <div class="sponsor">
+                <img src="imagenes/sponsors/xocolate.png" alt="Patrocinador 2">
+            </div>
+            <div class="sponsor">
+                <img src="imagenes/sponsors/lacasadelperol.jpg" alt="Patrocinador 3">
+            </div>
+            <div class="sponsor">
+                <img src="imagenes/sponsors/clinicamartin.png" alt="Patrocinador 4">
+            </div>
+            <div class="sponsor">
+                <img src="imagenes/sponsors/luisjuan.jpg" alt="Patrocinador 5">
+            </div>
+
+            <!-- repetidos para carrusel -->
+            <div class="sponsor">
+                <img src="imagenes/sponsors/alvarez.jpg" alt="Patrocinador 1">
+            </div>
+            <div class="sponsor">
+                <img src="imagenes/sponsors/xocolate.png" alt="Patrocinador 2">
+            </div>
+            <div class="sponsor">
+                <img src="imagenes/sponsors/lacasadelperol.jpg" alt="Patrocinador 3">
+            </div>
+            <div class="sponsor">
+                <img src="imagenes/sponsors/clinicamartin.png" alt="Patrocinador 4">
+            </div>
+            <div class="sponsor">
+                <img src="imagenes/sponsors/luisjuan.jpg" alt="Patrocinador 5">
+            </div>
+        </div>
+    </div>
+
+    <!-- ZONA CENTRAL -->
+    <div class="zona-central">
+
+        <p class="intro">
+            Bienvenidos al Club Waterpolo Petrer. Formación, competición y pasión por el waterpolo.
+        </p>
+
+        <div class="contenedor">
+            <div class="card rojo" onclick="mostrarSeccion('horarios')">
+                <span>🕒</span>
+                <h3>Horarios</h3>
+                <p><b>Consultar horarios de entrenamiento</b></p>
+            </div>
+            <div class="card " onclick="mostrarSeccion('equipos')">
+                <span>🤽🏼‍♂️</span>
+                <h3>Equipos</h3>
+                <p><b>Conoce a nuestros equipos</b></p>
+            </div>
+            <div class="card rojo" onclick="mostrarSeccion('galeria')">
+                <span>🖼️</span>
+                <h3>Galería</h3>
+                <p><b>Imágenes de nuestros eventos</b></p>
+            </div>
+            <div class="card " onclick="mostrarSeccion('partidos')">
+                <span>⚽</span>
+                <h3>Próximos Partidos</h3>
+            </div>
+            <div class="card rojo" onclick="mostrarSeccion('contacto')">
+                <span>☎️</span>
+                <h3>Contacto</h3>
+                <p><b>Información de contacto</b></p>
+            </div>
+            <div class="card " onclick="mostrarSeccion('ubicacion')">
+                <span>📍</span>
+                <h3>Ubicación</h3>
+                <p><b>Descubre dónde estamos</b></p>
+            </div>
+            <div class="card rojo" onclick="mostrarSeccion('calendario')">
+                <span>📅</span>
+                <h3>Calendario</h3>
+            </div>
+        </div>
+
+        <div id="contenido"></div>
+    </div>
+
+    <!-- Sidebar derecha redes -->
     <div class="sidebar derecha redes">
-        
         <a href="https://www.instagram.com/waterpolopetrer/" target="_blank" class="social-link">
             <img src="imagenes/sidebar/instagram.jpg" alt="Instagram">
         </a>
+
         <a href="https://www.facebook.com/CWPetrer" target="_blank" class="social-link">
             <img src="imagenes/sidebar/facebook.png" alt="Facebook">
         </a>
-
     </div>
 
-    <p class="intro">prueba movil Bienvenidos al Club Waterpolo Petrer. Formación, competición y pasión por el waterpolo.</p>
-
-    <div class="contenedor">
-        <div class="card" onclick="mostrarSeccion('horarios')">Horarios</div>
-        <div class="card rojo" onclick="mostrarSeccion('equipos')">Equipos</div>
-        <div class="card" onclick="mostrarSeccion('galeria')">Galeria</div>
-        <div class="card rojo" onclick="mostrarSeccion('partidos')">Proximos Partidos</div>
-        <div class="card " onclick="mostrarSeccion('contacto')">Contacto</div>
-        <div class="card rojo" onclick="mostrarSeccion('ubicacion')">Ubicación</div>
-    </div> <!-- Realizar el JS del contenedor ubicación -->
-
+</div>
     <div id="contenido"></div>
     <div id="lightbox" >
         <span class="cerrar" onclick="cerrarImagen()">✖</span>
@@ -84,6 +134,11 @@
 
         <span id="contador"></span>
     </div>
+
+    <footer>
+        <p>© 2026 Club Waterpolo Petrer</p>
+        <p>Piscina cubierta San Fernando · Petrer</p>
+    </footer>
    
 
     <script src="index.js"></script>

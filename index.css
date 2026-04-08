@@ -18,14 +18,74 @@ html, body {
 }
 
 .logo.sin{
+    
     width: 60px;
 }
 
 body{
+    margin-top: 20px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     background: linear-gradient(to bottom, white, #aaa9a9);
     min-height: 100vh;
+}
+
+.hero{
+    width: 85%;
+    max-width: 1200px;
+    height: 420px;
+    margin: 40px auto;
+    border-radius: 25px;
+    overflow: hidden;
+
+    background: url("imagenes/portada/hero-equipo.webp") center center / cover no-repeat;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    position: relative;
+}
+
+.hero-overlay{
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.45);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.hero-overlay h2{
+    font-size: 42px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.hero-overlay p{
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.hero-overlay button{
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    background: #ff3232;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero-overlay button:hover{
+    transform: scale(1.05);
+    background: #e62222;
 }
 
 h1{
@@ -53,31 +113,61 @@ h1{
 }
 
 .card{
+    grid-column: span 2;
+
     display: flex;
-    justify-content: center; /* aí se centra horizontalmente el texto en la tarjeta*/
-    align-items: center; /* aí se centra verticalmente el texto en la tarjeta*/
-    width: 180px;
-    height: 250px;
-    background-color: #272626;
-    color: #ff4d4d;
-    border-radius: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 190px;
+    height: 220px;
+
+    background: rgba(255,255,255,0.9);
+    color: #1f1f1f;
+
+    border-radius: 22px;
     cursor: pointer;
-    transition: 0.3s;
-    font-size: 18px;
+
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+    transition: all 0.3s ease;
+
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+.card span{
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.card h3{
+    margin: 0;
+    font-size: 22px;
+}
+
+.card p{
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 8px;
+    color: black;
 }
 
 .card.rojo{
-    background-color: #ff3232;
-    color: #141414;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: linear-gradient(135deg, #ff3232, #c91818);
+    color: white;
 }
+
 
 .card:hover{
     
-    transform: scale(1.08);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 }
 
 .ubicacion{
@@ -88,6 +178,8 @@ h1{
     max-width: 800px;
     margin: 20px auto;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    
+    
 }
 
 .ubicacion p{
@@ -106,6 +198,7 @@ h1{
 }
 
 .partidos{
+    
     background-color: white;
     padding: 30px;
     border-radius: 15px;
@@ -143,7 +236,7 @@ h1{
 }
 
 .contacto a {
-    color: #ff2d2d;
+    color: black;
     text-decoration: none;
     font-weight: bold;
    
@@ -156,16 +249,74 @@ h1{
     text-decoration: underline;
 }
 
+.btn-email{
+    display: inline-block;
+    padding: 14px 25px;
+    background: #ff3232;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-email:hover{
+    transform: scale(1.05);
+    background: #e62222;
+}
+
+.btn-instagram{
+    display: inline-block;
+    padding: 14px 25px;
+    background: #ff3232;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-instagram:hover{
+    transform: scale(1.05);
+    background: #e62222;
+}
+
 #contenido{
+    width: 90%;
+    max-width: 1000px;
     margin: 50px auto;
-    margin-top: 40px;
-    width: 60%;
-    min-height: 200px;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 20px;
+}
+.seccion-box{
+    background: rgba(255,255,255,0.95);
+    border-radius: 25px;
+    padding: 35px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    backdrop-filter: blur(10px);
+    animation: aparecer 0.4s ease;
+}
+.seccion-titulo{
+    font-size: 34px;
+    margin-bottom: 25px;
+    color: #1f1f1f;
+    font-weight: bold;
+    border-bottom: 3px solid #ff3232;
+    padding-bottom: 10px;
+}
+
+.dia{
+    background: linear-gradient(135deg, white, #f5f5f5);
+    padding: 25px;
+    border-radius: 18px;
+    color: black;
+    width: 100%;
+    max-width: 650px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+.dia:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
 
 .horario {
@@ -217,6 +368,101 @@ h1{
 .galeria img:hover{
     transform: scale(1.1);
 }
+
+.calendario-header button{
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: #ff3232;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.calendario-header button:hover{
+    transform: scale(1.08);
+    background: #e62222;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+.calendario-header button:active{
+    transform: scale(0.95);
+}
+
+.calendario-header{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendario-grid{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.dia-calendario{
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.dia-calendario:hover{
+    transform: scale(1.05);
+}
+
+.nombre-dia{
+    font-weight: bold;
+    text-align: center;
+    padding: 12px 0;
+    background: #272626;
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.partido-dia{
+    background: #ff3232;
+    color: white;
+    font-weight: bold;
+}
+
+.detalle-partido{
+    margin-top: 25px;
+    padding: 20px;
+    background: #f7f7f7;
+    border-radius: 15px;
+}
+
+.partido-card{
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.partido-linea{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 17px;
+}
+
+.partido-linea:last-child{
+    border-bottom: none;
+}
+
+
 
 #lightbox {
     position: fixed;
@@ -310,13 +556,34 @@ h1{
 .miniaturas img.activa {
     box-shadow: 0 0 10px #ff2d2d;
 }
+.layout-principal{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    width: 95%;
+    margin: 40px auto;
+}
+
+.zona-central{
+    flex: 1;
+    max-width: 900px;
+}
 
 .sidebar{
-    position: fixed;
+    width: 120px;
+    position: sticky;
     top: 120px;
-    width: 140px;
-    z-index: 100;
 }
+.sidebar.izquierda{
+    width: 150px;
+    height: 700px;   /* altura visible del carrusel */
+    overflow: hidden;
+    position: sticky;
+    top: 120px;
+}
+
+
 .izquierda{
     left: 100px;
 }
@@ -345,21 +612,14 @@ h1{
     box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
-.sidebar.izquierda{
-    position: fixed;
-    left: 20px;
-    top: 120px;
-    width: 150px;
-    height: 800px;
-    overflow: hidden; 
-}
+
 
 .sponsors-track {
     display: flex;
     flex-direction: column;
     gap: 15px;
 
-    animation: subirSponsors 12s linear infinite;
+    animation: subirSponsors 18s linear infinite;
 }
 
 @keyframes subirSponsors {
@@ -368,7 +628,7 @@ h1{
     }
 
     100% {
-        transform: translateY(-60%);
+        transform: translateY(-50%);
     }
 }
 
@@ -377,7 +637,7 @@ h1{
 }
 
 .redes{
-    position: fixed;
+    
     top: 180px;
 
     display: flex;
@@ -414,6 +674,37 @@ h1{
     box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
+.menu-movil{
+    display: none;
+    width: 90%;
+    margin: 20px auto;
+    padding: 15px;
+    background: #272626;
+    color: white;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+footer{
+     margin-top: 60px;
+    padding: 30px;
+    background: #1f1f1f;
+    color: white;
+}
+@keyframes aparecer{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 768px) {
     .header{
         flex-direction: column;
@@ -431,6 +722,27 @@ h1{
     }
 }
 
+@media (max-width: 768px){
+    .hero{
+        width: 95%;
+        height: 250px;
+        margin: 20px auto;
+    }
+
+    .hero-overlay h2{
+        font-size: 26px;
+    }
+
+    .hero-overlay p{
+        font-size: 16px;
+    }
+
+    .hero-overlay button{
+        font-size: 15px;
+        padding: 12px 20px;
+    }
+}
+
 @media (max-width: 768px) { /* En móvil se ponen abajo en horizontal */
     .contenedor{
         display: grid;
@@ -442,7 +754,7 @@ h1{
 
     .card{
         width: 100%;
-        height: 120px;
+        height: 140px;
         font-size: 16px;
     }
 }
@@ -489,9 +801,131 @@ h1{
 }
 
 
+@media (max-width: 768px){
+    .ubicacion iframe{
+        width: 100%;
+        height: 400px;
+        border: 0;
+        border-radius: 15px;
+        display: block;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 768px) {
+    .calendario-header {
+        flex-direction: row;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .calendario-header h3 {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .calendario-header button {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .calendario-grid {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 6px;
+    }
+
+    .dia-calendario {
+        padding: 12px 0;
+        font-size: 14px;
+        border-radius: 10px;
+        min-height: 45px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .detalle-partido {
+        margin-top: 20px;
+        padding: 15px;
+    }
+
+    .partido-card {
+        padding: 15px;
+        border-radius: 14px;
+    }
+
+    .partido-linea {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        font-size: 14px;
+    }
+}
+@media (max-width: 480px) {
+    .calendario-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px){
+
+    .calendario-header{
+        gap: 12px;
+        margin-bottom: 18px;
+    }
+
+    .calendario-header h3{
+        font-size: 18px;
+        margin: 0;
+        flex: 1;
+        text-align: center;
+    }
+
+    .calendario-grid{
+        gap: 6px;
+    }
+
+    .dia-calendario,
+    .nombre-dia,
+    .dia-vacio{
+        min-height: 48px;
+        padding: 10px 0;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .detalle-partido{
+        padding: 15px;
+    }
+
+    .partido-card{
+        padding: 18px;
+    }
+
+    .partido-linea{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        font-size: 14px;
+    }
+}
+
 @media (max-width: 768px) { /* esto sirve para esconder las barras laterales en pantallas pequeñas */
     .sidebar, .redes {
         display: none;
+    }
+}
+
+@media (max-width: 768px){
+    .nombre-dia{
+        font-size: 10px;
+        padding: 6px 0;
     }
 }
 
