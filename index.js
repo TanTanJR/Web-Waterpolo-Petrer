@@ -1,7 +1,7 @@
 let fechaVista = new Date();
 let imagenActual = 0;
 let listaImagenes = [];
-const partidosCalendario = [
+const partidosCalendario = [ // Aquí se pueden agregar más partidos con su fecha, ubicación y detalles */
     {
         fecha: "2026-04-18",
         ubicacion: "Piscina San Fernando, Petrer",
@@ -36,7 +36,7 @@ const partidosCalendario = [
     }
 ];
 function mostrarSeccion(seccion){
-    const contenido = document.getElementById("contenido");
+    const contenido = document.getElementById("contenido"); // Aquí se muestra el contenido de cada sección según el botón pulsado */
     
     if(seccion === "horarios"){
     contenido.innerHTML = `
@@ -55,7 +55,7 @@ function mostrarSeccion(seccion){
 }
 
 
-    if (seccion === "equipos") {
+    if (seccion === "equipos") { // Aquí se muestra el contenido de la sección de equipos, con una lista de los diferentes equipos del club */
        contenido.innerHTML = `
     <div class="seccion-box">
         <h2 class="seccion-titulo">👥 Equipos</h2>
@@ -76,9 +76,9 @@ function mostrarSeccion(seccion){
         `;
     }
 
-    /* */
+    
 
-    if (seccion === "galeria") {
+    if (seccion === "galeria") { // Aquí se muestra el contenido de la sección de galería, con una lista de imágenes que se pueden abrir en un lightbox al hacer clic */
 
         let html = "<h2>Galería</h2><div class='galeria'>";
 
@@ -93,7 +93,7 @@ function mostrarSeccion(seccion){
         contenido.innerHTML = html;
     }
 
-    if (seccion === "partidos") {
+    if (seccion === "partidos") { // Aquí se muestra el contenido de la sección de partidos, con una lista de los próximos partidos del club */
        contenido.innerHTML = `
     <div class="seccion-box">
         <h2 class="seccion-titulo">📅 Próximos Partidos</h2>
@@ -109,7 +109,7 @@ function mostrarSeccion(seccion){
 `;
     }
 
-    if (seccion === "contacto") {
+    if (seccion === "contacto") { // Aquí se muestra el contenido de la sección de contacto, con información de contacto del club y enlaces a redes sociales */
         contenido.innerHTML = `
         <div class="seccion-box">
         <h2 class="seccion-titulo">📬 Contacto</h2>
@@ -131,7 +131,7 @@ function mostrarSeccion(seccion){
         `;
     }
 
-    if(seccion === "ubicacion"){
+    if(seccion === "ubicacion"){ // Aquí se muestra el contenido de la sección de ubicación, con un mapa de Google Maps que muestra la ubicación del club */
         contenido.innerHTML = `
         <div class="seccion-box">
             <h2 class="seccion-titulo">📍 Ubicación</h2>
@@ -141,7 +141,7 @@ function mostrarSeccion(seccion){
         </div> `;
     }
 
-    if(seccion === "calendario"){
+    if(seccion === "calendario"){ // Aquí se muestra el contenido de la sección de calendario, con un calendario interactivo que muestra los próximos partidos del club según la fecha seleccionada */
     contenido.innerHTML = `
         <div class="seccion-box">
             <h2 class="seccion-titulo">📅 Calendario de Partidos</h2>
@@ -166,7 +166,7 @@ function mostrarSeccion(seccion){
     });
 }, 100);
 }
-function generarCalendario() {
+function generarCalendario() { // Esta función genera el calendario del mes actual y marca los días que tienen partidos programados, permitiendo hacer clic en cada día para ver los detalles de los partidos de ese día */
     const calendario = document.getElementById("calendario");
     const mesActual = document.getElementById("mesActual");
 
@@ -194,12 +194,12 @@ function generarCalendario() {
     <div class="nombre-dia">S</div>
     <div class="nombre-dia">D</div>
 `;
-for (let i = 0; i < primerDia; i++) {
+for (let i = 0; i < primerDia; i++) { // Agrega días vacíos al inicio del mes para alinear el primer día correctamente */
     html += `<div class="dia-vacio"></div>`;
 }
 
 
-    for (let dia = 1; dia <= diasMes; dia++) {
+    for (let dia = 1; dia <= diasMes; dia++) { // Agrega cada día del mes al calendario, marcando los días que tienen partidos programados */
         const fechaTexto = `${año}-${String(mes + 1).padStart(2, "0")}-${String(dia).padStart(2, "0")}`;
 
         const hayPartido = partidosCalendario.find(p => p.fecha === fechaTexto);
@@ -213,11 +213,11 @@ for (let i = 0; i < primerDia; i++) {
 
     calendario.innerHTML = html;
 }
-function cambiarMes(direccion) {
+function cambiarMes(direccion) { // Esta función cambia el mes que se muestra en el calendario, sumando o restando un mes a la fecha actual y regenerando el calendario */
     fechaVista.setMonth(fechaVista.getMonth() + direccion);
     generarCalendario();
 }
-function mostrarDetalle(fecha) {
+function mostrarDetalle(fecha) { // Esta función muestra los detalles de los partidos programados para la fecha seleccionada, buscando en el array de partidos y mostrando la información en un formato legible */
     const detalle = document.getElementById("detallePartido");
 
     const jornadas = partidosCalendario.filter(p => p.fecha === fecha);
@@ -253,17 +253,17 @@ function mostrarDetalle(fecha) {
 }
    
 
-function cerrarImagen(){
+function cerrarImagen(){ // Esta función cierra el lightbox de la galería, ocultando el contenedor del lightbox y deteniendo la visualización de la imagen grande */
     document.getElementById("lightbox").style.display = "none";
       
 }
 
-function actualizarContador(){
+function actualizarContador(){// Esta función actualiza el contador que muestra la posición de la imagen actual en la galería, mostrando el número de imagen actual y el total de imágenes disponibles */
     document.getElementById("contador").innerText = 
         (imagenActual + 1) + " / " + listaImagenes.length;
 }
 
-function abrirImagen(index){
+function abrirImagen(index){ // Esta función abre la imagen seleccionada en el lightbox, mostrando la imagen grande y generando las miniaturas de navegación, además de actualizar el contador de imágenes */
     imagenActual = index;
 
     const lightbox = document.getElementById("lightbox");
@@ -294,7 +294,7 @@ function abrirImagen(index){
     actualizarContador();
 }
 
-function actualizarMiniaturas(){
+function actualizarMiniaturas(){ // Esta función actualiza las miniaturas de navegación en el lightbox, resaltando la miniatura de la imagen actual y permitiendo hacer clic en las miniaturas para cambiar la imagen mostrada */
     const minis = document.querySelectorAll(".miniaturas img");
 
     minis.forEach((img, i) => {
@@ -306,7 +306,7 @@ function actualizarMiniaturas(){
     });
 }
 
-function cambiarImagen(direccion){
+function cambiarImagen(direccion){ // Esta función cambia la imagen mostrada en el lightbox, sumando o restando a la posición actual de la imagen y actualizando la imagen grande, el contador y las miniaturas */
 
     const img = document.getElementById("imagenGrande");
 
@@ -333,7 +333,7 @@ function cambiarImagen(direccion){
     }, 200);
 }
 
-document.addEventListener("keydown", function(e){
+document.addEventListener("keydown", function(e){ // Este evento escucha las teclas presionadas por el usuario y permite navegar por las imágenes del lightbox usando las flechas izquierda y derecha, o cerrar el lightbox con la tecla Escape */
 
     const lightbox = document.getElementById("lightbox");
 
@@ -345,7 +345,7 @@ document.addEventListener("keydown", function(e){
     }
 });
 
-function toggleMenu(){
+function toggleMenu(){ // Esta función muestra u oculta el menú de navegación en pantallas pequeñas, cambiando la propiedad de display del contenedor del menú entre "grid" y "none" */
     const contenedor = document.getElementById(".contenedor");
 
     if (contenedor.style.display === "grid" || contenedor.style.display === "flex") {
@@ -354,5 +354,7 @@ function toggleMenu(){
         contenedor.style.display = "grid";
     }
 };
+
+/*Hacer que en el calendario al pulsar un día se baje la pantalla como estamos haciendo con los botones y contenido */
 
 

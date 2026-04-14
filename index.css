@@ -30,7 +30,7 @@ body{
     min-height: 100vh;
 }
 
-.hero{
+.hero{ /* esta es la sección hero es la portada de la web */
     width: 85%;
     max-width: 1200px;
     height: 420px;
@@ -83,7 +83,7 @@ body{
     transition: 0.3s;
 }
 
-.hero-overlay button:hover{
+.hero-overlay button:hover{ /* aqui termina la sección hero */
     transform: scale(1.05);
     background: #e62222;
 }
@@ -99,7 +99,7 @@ h1{
     font-size: 18px;
 }
 
-.contenedor{
+.contenedor{ /* esta sección es la de las tarjetas principales que llevan a cada sección del sitio */
     display: grid;
     grid-template-columns: repeat(6, 90px);
     gap: 40px;
@@ -112,7 +112,7 @@ h1{
     grid-column: span 2;
 }
 
-.card{
+.card{ /* cada tarjeta ocupa el espacio de 2 columnas para que sean más grandes y llamativas */
     grid-column: span 2;
 
     display: flex;
@@ -158,7 +158,7 @@ h1{
     color: black;
 }
 
-.card.rojo{
+.card.rojo{ /* esta clase se le asigna a la tarjeta de "Partidos" para que resalte más */
     background: linear-gradient(135deg, #ff3232, #c91818);
     color: white;
 }
@@ -170,7 +170,7 @@ h1{
     box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 }
 
-.ubicacion{
+.ubicacion{ /* esta sección es la de la ubicación del club, con un mapa de google maps */
     background: white;
     padding: 30px;
     border-radius: 20px;
@@ -188,7 +188,7 @@ h1{
     font-weight: bold;
 }
 
-.equipos{
+.equipos{ /* esta sección es la de los equipos del club, con una breve descripción de cada uno */
     background-color: white;
     padding: 30px;
     border-radius: 20px;
@@ -197,7 +197,7 @@ h1{
     
 }
 
-.partidos{
+.partidos{ /* esta sección es la de los partidos, con un calendario de los próximos partidos y una breve descripción de cada uno */
     
     background-color: white;
     padding: 30px;
@@ -218,7 +218,7 @@ h1{
 .partidos li{
     margin: 10px 0;
 }
-.contacto{
+.contacto{ /* esta sección es la de contacto, con un formulario de contacto y los enlaces a las redes sociales del club */
     background-color: white;
     padding: 30px;
     border-radius: 15px;
@@ -281,13 +281,13 @@ h1{
     background: #e62222;
 }
 
-#contenido{
+#contenido{ /* esta sección es la que contiene el contenido principal de cada sección, como el calendario de partidos, la galería de fotos, etc. */
     width: 90%;
     max-width: 1000px;
     margin: 50px auto;
     padding: 20px;
 }
-.seccion-box{
+.seccion-box{ /* esta sección es el contenedor de cada sección principal */
     background: rgba(255,255,255,0.95);
     border-radius: 25px;
     padding: 35px;
@@ -295,7 +295,7 @@ h1{
     backdrop-filter: blur(10px);
     animation: aparecer 0.4s ease;
 }
-.seccion-titulo{
+.seccion-titulo{ /* esta clase se le asigna al título de cada sección para que tenga un estilo uniforme */
     font-size: 34px;
     margin-bottom: 25px;
     color: #1f1f1f;
@@ -304,7 +304,7 @@ h1{
     padding-bottom: 10px;
 }
 
-.dia{
+.dia{ /* esta clase se le asigna a cada día del calendario de partidos para que tenga un estilo uniforme */
     background: linear-gradient(135deg, white, #f5f5f5);
     padding: 25px;
     border-radius: 18px;
@@ -314,7 +314,7 @@ h1{
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     transition: 0.3s;
 }
-.dia:hover{
+.dia:hover{ 
     transform: translateY(-4px);
     box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
@@ -332,7 +332,7 @@ h1{
 .horario p {
     margin: 5px 0;
 }
-.dias {
+.dias { /* esta clase se le asigna al contenedor de los días del calendario para que estén organizados y tengan un espacio entre ellos */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -340,7 +340,7 @@ h1{
     margin-top: 20px;
 }
 
-.dia {
+.dia { /* esta clase se le asigna a cada día del calendario de partidos para que tenga un estilo uniforme */
     background: white;
     padding: 30px;
     border-radius: 20px;
@@ -349,7 +349,9 @@ h1{
     text-align: center;
 }
 
-.galeria {
+                                /* Sección de la galería de fotos */
+
+.galeria { /* esta sección es la de la galería de fotos, con una cuadrícula de fotos del club */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -357,7 +359,7 @@ h1{
    
 }
 
-.galeria img{
+.galeria img{ /* esta clase se le asigna a cada foto de la galería para que tengan un estilo uniforme */
     width: 200px;
     height: 150px;
     object-fit: cover;
@@ -369,102 +371,7 @@ h1{
     transform: scale(1.1);
 }
 
-.calendario-header button{
-    width: 48px;
-    height: 48px;
-    border: none;
-    border-radius: 50%;
-    background: #ff3232;
-    color: white;
-    font-size: 22px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: all 0.3s ease;
-}
-
-.calendario-header button:hover{
-    transform: scale(1.08);
-    background: #e62222;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-}
-
-.calendario-header button:active{
-    transform: scale(0.95);
-}
-
-.calendario-header{
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.calendario-grid{
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-}
-
-.dia-calendario{
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    transition: 0.3s;
-}
-
-.dia-calendario:hover{
-    transform: scale(1.05);
-}
-
-.nombre-dia{
-    font-weight: bold;
-    text-align: center;
-    padding: 12px 0;
-    background: #272626;
-    color: white;
-    border-radius: 10px;
-    font-size: 16px;
-}
-
-.partido-dia{
-    background: #ff3232;
-    color: white;
-    font-weight: bold;
-}
-
-.detalle-partido{
-    margin-top: 25px;
-    padding: 20px;
-    background: #f7f7f7;
-    border-radius: 15px;
-}
-
-.partido-card{
-    background: white;
-    padding: 25px;
-    border-radius: 18px;
-    margin-top: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.partido-linea{
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 0;
-    border-bottom: 1px solid #ddd;
-    font-size: 17px;
-}
-
-.partido-linea:last-child{
-    border-bottom: none;
-}
-
-
-
-#lightbox {
+#lightbox { /* esta sección es el lightbox que se muestra al hacer clic en una foto de la galería para mostrarla en grande */
     position: fixed;
     top: 0;
     left: 0;
@@ -481,13 +388,13 @@ h1{
 
 }
 
-#lightbox img {
+#lightbox img { /* esta clase se le asigna a la imagen dentro del lightbox para que tenga un estilo uniforme */
     max-width: 80%;
     max-height: 80%;
     border-radius: 10px;
 }
 
-.cerrar {
+.cerrar { /* esta clase se le asigna al botón de cerrar del lightbox para que tenga un estilo uniforme */
     position: absolute;
     top: 20px;
     right: 30px;
@@ -497,7 +404,7 @@ h1{
     font-size: 25px;
 }
 
-.flecha {
+.flecha { /* esta clase se le asigna a las flechas de navegación del lightbox para que tengan un estilo uniforme */
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -529,7 +436,7 @@ h1{
    
 }
 
-.miniaturas {
+.miniaturas { /* esta clase se le asigna al contenedor de las miniaturas dentro del lightbox para que estén organizadas en una fila y tengan un espacio entre ellas */
     
     position: absolute;
     bottom: 20px;
@@ -556,7 +463,104 @@ h1{
 .miniaturas img.activa {
     box-shadow: 0 0 10px #ff2d2d;
 }
-.layout-principal{
+
+.calendario-header button{ /* esta clase se le asigna a los botones del encabezado del calendario para que tengan un estilo uniforme */
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: #ff3232;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.calendario-header button:hover{ /* efecto de hover para los botones del calendario */
+    transform: scale(1.08);
+    background: #e62222;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+.calendario-header button:active{
+    transform: scale(0.95);
+}
+
+.calendario-header{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendario-grid{ /* esta clase se le asigna al contenedor de los días del calendario para que estén organizados en una cuadrícula de 7 columnas (una por cada día de la semana) */
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.dia-calendario{ /* esta clase se le asigna a cada día del calendario para que tenga un estilo uniforme */
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.dia-calendario:hover{
+    transform: scale(1.05);
+}
+
+.nombre-dia{ /* esta clase se le asigna a los nombres de los días de la semana para que tengan un estilo uniforme */
+    font-weight: bold;
+    text-align: center;
+    padding: 12px 0;
+    background: #272626;
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.partido-dia{ /* esta clase se le asigna a los días del calendario que tienen partidos para que resalten más */
+    background: #ff3232;
+    color: white;
+    font-weight: bold;
+}
+
+.detalle-partido{ /* esta clase se le asigna al contenedor de los detalles de cada partido para que tenga un estilo uniforme */
+    margin-top: 25px;
+    padding: 20px;
+    background: #f7f7f7;
+    border-radius: 15px;
+}
+
+.partido-card{ /* esta clase se le asigna a cada tarjeta de partido para que tengan un estilo uniforme */
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.partido-linea{ /* esta clase se le asigna a cada línea de información dentro de la tarjeta de partido para que estén organizadas y tengan un espacio entre ellas */
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 17px;
+}
+
+.partido-linea:last-child{
+    border-bottom: none;
+}
+
+                        /* Sección de las barras laterales (sponsors y redes sociales) */
+
+
+.layout-principal{ /* esta sección es el contenedor principal que organiza el contenido central y las barras laterales */
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -622,7 +626,7 @@ h1{
     animation: subirSponsors 18s linear infinite;
 }
 
-@keyframes subirSponsors {
+@keyframes subirSponsors { /* esta animación hace que los logos de los sponsors suban continuamente en la barra lateral izquierda */
     0% {
         transform: translateY(0);
     }
@@ -632,7 +636,7 @@ h1{
     }
 }
 
-.sidebar.izquierda:hover .sponsors-track {
+.sidebar.izquierda:hover .sponsors-track { /* al hacer hover sobre la barra lateral izquierda, la animación se pausa para que los logos de los sponsors no sigan subiendo y se puedan ver mejor */
     animation-play-state: paused;
 }
 
@@ -646,7 +650,7 @@ h1{
     z-index: 1000;
 }
 
-.social-link{
+.social-link{ /* esta clase se le asigna a cada enlace de red social para que tengan un estilo uniforme */
     width: 100px;
     height: 100px;
     display: flex;
@@ -674,7 +678,8 @@ h1{
     box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
-.menu-movil{
+
+.menu-movil{ /* esta clase se le asigna al botón del menú móvil para que tenga un estilo uniforme */
     display: none;
     width: 90%;
     margin: 20px auto;
@@ -693,7 +698,8 @@ footer{
     background: #1f1f1f;
     color: white;
 }
-@keyframes aparecer{
+
+@keyframes aparecer{ /* esta animación hace que las secciones principales del sitio aparezcan con un efecto de fade-in y deslizamiento desde abajo */
     from{
         opacity: 0;
         transform: translateY(20px);
@@ -705,7 +711,7 @@ footer{
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* este bloque de estilos se aplica cuando la pantalla tiene un ancho máximo de 768px, es decir, en dispositivos móviles */
     .header{
         flex-direction: column;
         gap: 10px;
@@ -722,7 +728,7 @@ footer{
     }
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px){ /* en este bloque de estilos se ajusta la sección hero para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un texto más legible */
     .hero{
         width: 95%;
         height: 250px;
@@ -759,7 +765,7 @@ footer{
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* en este bloque de estilos se ajusta el contenido principal de cada sección para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un texto más legible */
     #contenido{
         width: 95%;
         font-size: 16px;
@@ -776,14 +782,14 @@ footer{
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* en este bloque de estilos se ajusta la sección de la galería de fotos para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un diseño más vertical */
     .galeria img{
         width: 45%;
         height: auto;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* en este bloque de estilos se ajusta el lightbox de la galería de fotos para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un diseño más vertical */
     #imagenGrande{
         max-width: 95%;
         max-height: 60%;
@@ -801,7 +807,7 @@ footer{
 }
 
 
-@media (max-width: 768px){
+@media (max-width: 768px){ /* en este bloque de estilos se ajusta la sección de la ubicación para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un diseño más vertical */
     .ubicacion iframe{
         width: 100%;
         height: 400px;
@@ -812,7 +818,7 @@ footer{
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* en este bloque de estilos se ajusta la sección de los partidos para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un diseño más vertical */
     .calendario-header {
         flex-direction: row;
         gap: 10px;
@@ -865,13 +871,13 @@ footer{
         font-size: 14px;
     }
 }
-@media (max-width: 480px) {
+@media (max-width: 480px) { /* en este bloque de estilos se ajusta aún más la sección de los partidos para que se vea bien en pantallas muy pequeñas, con un tamaño más compacto y un diseño más vertical */
     .calendario-grid {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px){ /* en este bloque de estilos se ajusta la sección de los partidos para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un diseño más vertical */
 
     .calendario-header{
         gap: 12px;
@@ -922,10 +928,10 @@ footer{
     }
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px){ /*esto sirve para que en pantallas pequeñas los dias de la semana no se muestren */
     .nombre-dia{
-        font-size: 10px;
-        padding: 6px 0;
+        display: none;
+        
     }
 }
 
@@ -943,7 +949,7 @@ footer{
     }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1400px) { /* en este bloque de estilos se ajusta el tamaño de las barras laterales y los enlaces de redes sociales para que se vean bien en pantallas medianas, con un tamaño más compacto */
     .sidebar {
         width: 90px;
     }
@@ -954,13 +960,13 @@ footer{
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1200px) { /* en este bloque de estilos se ajusta el diseño para que en pantallas medianas las barras laterales se oculten y solo se muestren los enlaces de redes sociales en la parte inferior derecha */
     .sidebar {
         display: none;
     }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1100px) { /* en este bloque de estilos se ajusta el diseño para que en pantallas medianas las barras laterales se oculten y solo se muestren los enlaces de redes sociales en la parte inferior derecha */
     .sidebar.izquierda {
         display: none;
     }
