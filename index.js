@@ -99,9 +99,9 @@ function mostrarSeccion(seccion){
         <h2 class="seccion-titulo">📅 Próximos Partidos</h2>
 
         <div class="partidos">
-            <h2>CW Petrer vs CW Turia</h2>
+            <h2>Sin determinar</h2>
             
-                <h2>18-06-2026</h2>
+                <h2></h2>
                
             
         </div>
@@ -109,27 +109,52 @@ function mostrarSeccion(seccion){
 `;
     }
 
-    if (seccion === "contacto") { // Aquí se muestra el contenido de la sección de contacto, con información de contacto del club y enlaces a redes sociales */
-        contenido.innerHTML = `
+    if (seccion === "contacto") {
+    contenido.innerHTML = `
         <div class="seccion-box">
-        <h2 class="seccion-titulo">📬 Contacto</h2>
-        
-        <div class="contacto">
-        
-       Email:<a href="mailto:club@waterpolo.com?subject=Información para unirse al club&body=Hola, me gustaría recibir información para formar parte del Club Waterpolo Petrer." class="btn-email">✉ Escríbenos</a>
-        <br><br>
-        Teléfono:
-        <a href="tel:+34625141778" class="btn-telefono">📞 625 141 778</a>
-        <a href="tel:+34667455600" class="btn-telefono">📞 667 455 600</a>
-        <br><br>
-        Nuestro → <a href="https://www.instagram.com/waterpolopetrer/" target="_blank" class="btn-instagram">
-        📸 Instagram </a>
-        
+            <h2 class="seccion-titulo">📬 Contacto</h2>
 
-        </ul>
+            <div class="contacto">
+
+                <div class="contacto-item">
+                    <h3>📧 Email</h3>
+                    <p>¿Tienes alguna pregunta? Escríbenos y te responderemos lo antes posible.</p>
+                    <a href="mailto:club@waterpolo.com?subject=Información para unirse al club&body=Hola, me gustaría recibir información para formar parte del Club Waterpolo Petrer."
+                       class="btn-email">
+                        ✉ Escríbenos
+                    </a>
+                </div>
+
+                <div class="contacto-item">
+                    <h3>📞 Teléfono</h3>
+                    <p>Ponte en contacto directamente con nosotros:</p>
+
+                    <div class="telefonos">
+                        <a href="tel:+34625141778" class="btn-telefono">
+                            📞 625 141 778
+                        </a>
+
+                        <a href="tel:+34667455600" class="btn-telefono">
+                            📞 667 455 600
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contacto-item">
+                    <h3>📸 Redes Sociales</h3>
+                    <p>Síguenos y descubre las novedades del club.</p>
+
+                    <a href="https://www.instagram.com/waterpolopetrer/"
+                       target="_blank"
+                       class="btn-instagram">
+                        📸 Instagram
+                    </a>
+                </div>
+
+            </div>
         </div>
-        `;
-    }
+    `;
+}
 
     if(seccion === "ubicacion"){ // Aquí se muestra el contenido de la sección de ubicación, con un mapa de Google Maps que muestra la ubicación del club */
         contenido.innerHTML = `
