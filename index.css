@@ -566,6 +566,68 @@ h1{
     transform: scale(1.05);
 }
 
+/* =========================
+   SECCIÓN COMPRAS
+========================= */
+
+.compras-intro {
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.producto-card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    border-left: 6px solid #ff3232;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+}
+
+.producto-icono {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.producto-card h3 {
+    margin: 10px 0;
+    font-size: 21px;
+}
+
+.producto-card p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.btn-comprar {
+    border: none;
+    padding: 11px 22px;
+    border-radius: 25px;
+    background: #ff3232;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-comprar:hover {
+    transform: scale(1.05);
+    background: #d90000;
+}
+
 .nombre-dia{ /* esta clase se le asigna a los nombres de los días de la semana para que tengan un estilo uniforme */
     font-weight: bold;
     text-align: center;
@@ -1069,4 +1131,16 @@ footer{
         width: 100%;
         height: 100%;
     }
+}
+@media (max-width: 768px) {
+
+    .productos {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .producto-card {
+        padding: 20px;
+    }
+
 }

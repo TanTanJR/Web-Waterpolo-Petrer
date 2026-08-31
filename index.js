@@ -185,6 +185,61 @@ function mostrarSeccion(seccion){
 
     generarCalendario();
 }
+
+if(seccion === "compras"){
+    contenido.innerHTML = `
+        <div class="seccion-box">
+
+            <h2 class="seccion-titulo">🛍️ Material del Club</h2>
+
+            <p class="compras-intro">
+                Descubre el material oficial del Club Waterpolo Petrer.
+            </p>
+
+            <div class="productos">
+
+                <div class="producto-card">
+                    <div class="producto-icono">🩱</div>
+                    <h3>Bañador</h3>
+                    <p>Bañador oficial del club.</p>
+                    <button class="btn-comprar">
+                        🛒 Comprar
+                    </button>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-icono">🏊</div>
+                    <h3>Toalla</h3>
+                    <p>Toalla oficial del Club Waterpolo Petrer.</p>
+                    <button class="btn-comprar">
+                        🛒 Comprar
+                    </button>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-icono">🧢</div>
+                    <h3>Gorro de Waterpolo</h3>
+                    <p>Gorro oficial para los partidos.</p>
+                    <button class="btn-comprar">
+                        🛒 Comprar
+                    </button>
+                </div>
+
+                <div class="producto-card">
+                    <div class="producto-icono">🏊‍♂️</div>
+                    <h3>Gorro de Natación</h3>
+                    <p>Gorro para entrenamientos y piscina.</p>
+                    <button class="btn-comprar">
+                        🛒 Comprar
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    `;
+}
+
     setTimeout(() => {
     document.getElementById("contenido").scrollIntoView({
         behavior: "smooth"
