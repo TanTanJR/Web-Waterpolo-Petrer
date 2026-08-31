@@ -117,11 +117,16 @@ function mostrarSeccion(seccion){
             <div class="contacto">
 
                 <div class="contacto-item">
-                    <h3>📧 Email</h3>
+                    <h3>
+                        <img src="imagenes/contacto/gmail.jpg" class="icono-contacto">
+                        Email
+                    </h3>
+
                     <p>¿Tienes alguna pregunta? Escríbenos y te responderemos lo antes posible.</p>
+
                     <a href="mailto:club@waterpolo.com?subject=Información para unirse al club&body=Hola, me gustaría recibir información para formar parte del Club Waterpolo Petrer."
-                       class="btn-email">
-                        ✉ Escríbenos
+                    class="btn-email">
+                        Escríbenos
                     </a>
                 </div>
 
@@ -140,14 +145,19 @@ function mostrarSeccion(seccion){
                     </div>
                 </div>
 
-                <div class="contacto-item">
-                    <h3>📸 Redes Sociales</h3>
+               <div class="contacto-item">
+                    <h3>
+                        <img src="imagenes/sidebar/instagram.jpg" class="icono-contacto">
+                        Redes Sociales
+                    </h3>
+
                     <p>Síguenos y descubre las novedades del club.</p>
 
                     <a href="https://www.instagram.com/waterpolopetrer/"
-                       target="_blank"
-                       class="btn-instagram">
-                        📸 Instagram
+                    target="_blank"
+                    class="btn-instagram">
+                       <img src="imagenes/contacto/instagram-rojo.jpg" class="icono-contacto"> 
+                       Instagram
                     </a>
                 </div>
 

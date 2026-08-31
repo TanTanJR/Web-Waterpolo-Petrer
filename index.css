@@ -275,6 +275,14 @@ h1{
     margin-bottom: 15px;
 }
 
+.icono-contacto{
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
 .telefonos {
     display: flex;
     flex-wrap: wrap;
