@@ -1,6 +1,11 @@
 let fechaVista = new Date();
 let imagenActual = 0;
 let listaImagenes = [];
+
+let productoActual = 0;
+let imagenProductoActual = 0;
+let listaProductos = [];
+
 const partidosCalendario = [ // Aquí se pueden agregar más partidos con su fecha, ubicación y detalles */
     {
         fecha: "2026-04-18",
@@ -203,67 +208,70 @@ function mostrarSeccion(seccion){
     generarCalendario();
 }
 
-if(seccion === "compras"){
+if (seccion === "compras") {
+
     contenido.innerHTML = `
         <div class="seccion-box">
 
-            <h2 class="seccion-titulo">🛍️ Material del Club</h2>
+            <button class="btn-inicio" onclick="volverInicio()">↑ Inicio</button>
 
-            <p class="compras-intro">
-                Descubre el material oficial del Club Waterpolo Petrer.
-            </p>
+            <h2 class="seccion-titulo">🛍️ Material oficial del club</h2>
 
-            <div class="productos">
+            <div class="tienda">
 
-                <div class="producto-card">
-                    <div class="producto-icono">🩱</div>
+                <div class="producto" onclick="abrirProducto(0)">
+                    <img src="imagenes/productos/abanicos.jpg" alt="Abanicos del club">
+                    <h3>Abanicos</h3>
+                    <p>Material oficial del club</p>
+                </div>
+
+                <div class="producto" onclick="abrirProducto(1)">
+                    <img src="imagenes/productos/bañador.jpg" alt="Bañador del club">
                     <h3>Bañador</h3>
-                    <p>Bañador oficial del club.</p>
-                    <button class="btn-comprar">
-                        🛒 Comprar
-                    </button>
+                    <p>Material oficial del club</p>
                 </div>
 
-                <div class="producto-card">
-                    <div class="producto-icono">🏊</div>
-                    <h3>Toalla</h3>
-                    <p>Toalla oficial del Club Waterpolo Petrer.</p>
-                    <button class="btn-comprar">
-                        🛒 Comprar
-                    </button>
+                <div class="producto" onclick="abrirProducto(2)">
+                    <img src="imagenes/productos/equipacion.jpg" alt="Equipación del club">
+                    <h3>Equipación</h3>
+                    <p>Equipación oficial</p>
                 </div>
 
-                <div class="producto-card">
-                    <div class="producto-icono">🧢</div>
-                    <h3>Gorro de Waterpolo</h3>
-                    <p>Gorro oficial para los partidos.</p>
-                    <button class="btn-comprar">
-                        🛒 Comprar
-                    </button>
-                </div>
+                <div class="producto gorros">
 
-                <div class="producto-card">
-                    <div class="producto-icono">🏊‍♂️</div>
-                    <h3>Gorro de Natación</h3>
-                    <p>Gorro para entrenamientos y piscina.</p>
-                    <button class="btn-comprar">
-                        🛒 Comprar
+                    <button class="flecha-gorro izquierda" onclick="cambiarGorro(-1)">
+                        ❮
                     </button>
+
+                    <img id="imagenGorro"
+                        src="imagenes/productos/gorros-natacion.jpg"
+                        alt="Gorro de natación">
+
+                    <button class="flecha-gorro derecha" onclick="cambiarGorro(1)">
+                        ❯
+                    </button>
+
+                    <h3>Gorros de natación</h3>
+
+                </div>
+                <div class="producto" onclick="abrirProducto(4)">
+                    <img src="imagenes/productos/mochila.jpg" alt="Mochila del club">
+                    <h3>Mochila</h3>
+                    <p>Material oficial del club</p>
                 </div>
 
             </div>
 
         </div>
-          
     `;
 }
-    
 
     setTimeout(() => {
-    document.getElementById("contenido").scrollIntoView({
-        behavior: "smooth"
-    });
-}, 100);
+        contenido.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }, 100);
 }
 
 
@@ -396,6 +404,71 @@ function abrirImagen(index){ // Esta función abre la imagen seleccionada en el 
     actualizarContador();
 }
 
+function abrirProducto(index) {
+
+    productoActual = index;
+    imagenProductoActual = 0;
+
+    const productos = [
+        {
+            nombre: "Abanicos",
+            imagenes: ["abanicos.jpg"]
+        },
+        {
+            nombre: "Bañador",
+            imagenes: ["bañador.jpg"]
+        },
+        {
+            nombre: "Equipación",
+            imagenes: ["equipacion.jpg"]
+        },
+        {
+            nombre: "Gorros de natación",
+            imagenes: ["gorros-natacion.jpg", "gorros-natacion2.jpg"]
+        },
+        {
+            nombre: "Mochila",
+            imagenes: ["mochila.jpg"]
+        }
+    ];
+
+    listaProductos = productos[productoActual].imagenes;
+
+    const lightbox = document.getElementById("lightbox");
+    const imagen = document.getElementById("imagenGrande");
+
+    imagen.src = "imagenes/productos/" + listaProductos[0];
+
+    lightbox.style.display = "flex";
+
+    actualizarContadorProducto();
+}
+
+function cambiarImagenProducto(direccion) {
+
+    imagenProductoActual += direccion;
+
+    if (imagenProductoActual < 0) {
+        imagenProductoActual = listaProductos.length - 1;
+    }
+
+    if (imagenProductoActual >= listaProductos.length) {
+        imagenProductoActual = 0;
+    }
+
+    const imagen = document.getElementById("imagenGrande");
+
+    imagen.src = "imagenes/compras/" + listaProductos[imagenProductoActual];
+
+    actualizarContadorProducto();
+}
+
+function actualizarContadorProducto() {
+
+    document.getElementById("contador").innerText =
+        (imagenProductoActual + 1) + " / " + listaProductos.length;
+}
+
 function actualizarMiniaturas(){ // Esta función actualiza las miniaturas de navegación en el lightbox, resaltando la miniatura de la imagen actual y permitiendo hacer clic en las miniaturas para cambiar la imagen mostrada */
     const minis = document.querySelectorAll(".miniaturas img");
 
@@ -458,5 +531,26 @@ function toggleMenu(){ // Esta función muestra u oculta el menú de navegación
 };
 
 /*Hacer que en el calendario al pulsar un día se baje la pantalla como estamos haciendo con los botones y contenido */
+const gorros = [
+    "gorros-natacion.jpg",
+    "gorros-natacion2.jpg"
+];
 
+let gorroActual = 0;
+
+function cambiarGorro(direccion) {
+
+    gorroActual += direccion;
+
+    if (gorroActual < 0) {
+        gorroActual = gorros.length - 1;
+    }
+
+    if (gorroActual >= gorros.length) {
+        gorroActual = 0;
+    }
+
+    document.getElementById("imagenGorro").src =
+        "imagenes/productos/" + gorros[gorroActual];
+}
 

@@ -636,6 +636,45 @@ h1{
     background: #d90000;
 }
 
+.tienda{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.producto{
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 6px solid #ff3232;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.producto:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+
+.producto img{
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.producto h3{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.producto p{
+    margin: 0;
+    color: #666;
+}
 
 .nombre-dia{ /* esta clase se le asigna a los nombres de los días de la semana para que tengan un estilo uniforme */
     font-weight: bold;
@@ -1152,4 +1191,15 @@ footer{
         padding: 20px;
     }
 
+}
+@media (max-width: 768px){
+
+    .tienda{
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .producto img{
+        height: 200px;
+    }
 }
