@@ -213,8 +213,6 @@ if (seccion === "compras") {
     contenido.innerHTML = `
         <div class="seccion-box">
 
-            <button class="btn-inicio" onclick="volverInicio()">↑ Inicio</button>
-
             <h2 class="seccion-titulo">🛍️ Material oficial del club</h2>
 
             <div class="tienda">
