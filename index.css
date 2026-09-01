@@ -636,6 +636,7 @@ h1{
     background: #d90000;
 }
 
+
 .nombre-dia{ /* esta clase se le asigna a los nombres de los días de la semana para que tengan un estilo uniforme */
     font-weight: bold;
     text-align: center;

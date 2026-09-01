@@ -51,7 +51,8 @@ function mostrarSeccion(seccion){
             <div class="dia"><b>Jueves</b><br>Pre-Benjamín / Benjamin / Alevín A/B→ 19:00 - 20:00 <br>Alevín / Infantil → 19:00 - 20:30 <br>Juvenil / Asoluto Masc / Absoluto Fem → 21:30 - 23:30</div>
             <div class="dia"><b>Viernes</b><br>Pre-Benjamín / Benjamin / Alevín / Infantil → 19:30 - 21:00 <br>Juvenil / Asoluto Masc / Absoluto Fem → 20:30 - 22:30</div>
         </div>
-    </div>`;
+    </div>
+    `;
 }
 
 
@@ -91,6 +92,7 @@ function mostrarSeccion(seccion){
         html += "</div>";
 
         contenido.innerHTML = html;
+        
     }
 
     if (seccion === "partidos") { // Aquí se muestra el contenido de la sección de partidos, con una lista de los próximos partidos del club */
@@ -106,6 +108,7 @@ function mostrarSeccion(seccion){
             
         </div>
     </div>
+    
 `;
     }
 
@@ -163,6 +166,7 @@ function mostrarSeccion(seccion){
 
             </div>
         </div>
+       
     `;
 }
 
@@ -173,7 +177,9 @@ function mostrarSeccion(seccion){
             <div class="ubicacion">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d464.23849067849403!2d-0.7774816203496921!3d38.487368246593235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63dacc1e0f63bf%3A0x1ec272fa486c487d!2sPiscina%20cubierta%20de%20San%20Fernando!5e0!3m2!1ses!2ses!4v1774895710142!5m2!1ses!2ses" width="100%" height="450" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-        </div> `;
+        </div>
+         `;
+         
     }
 
     if(seccion === "calendario"){ // Aquí se muestra el contenido de la sección de calendario, con un calendario interactivo que muestra los próximos partidos del club según la fecha seleccionada */
@@ -191,6 +197,7 @@ function mostrarSeccion(seccion){
 
             <div id="detallePartido" class="detalle-partido"></div>
         </div>
+         
     `;
 
     generarCalendario();
@@ -247,8 +254,10 @@ if(seccion === "compras"){
             </div>
 
         </div>
+          
     `;
 }
+    
 
     setTimeout(() => {
     document.getElementById("contenido").scrollIntoView({
@@ -256,6 +265,9 @@ if(seccion === "compras"){
     });
 }, 100);
 }
+
+
+
 function generarCalendario() { // Esta función genera el calendario del mes actual y marca los días que tienen partidos programados, permitiendo hacer clic en cada día para ver los detalles de los partidos de ese día */
     const calendario = document.getElementById("calendario");
     const mesActual = document.getElementById("mesActual");
