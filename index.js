@@ -46,18 +46,91 @@ function mostrarSeccion(seccion){
     if(seccion === "horarios"){
     contenido.innerHTML = `
     <div class="seccion-box">
-        <h2 class="seccion-titulo">🕒 Horarios</h2>
-       
+        <h2 class="seccion-titulo">🕒 Horarios de entrenamiento</h2>
 
         <div class="dias">
-            <div class="dia"><b>Lunes</b><br>Alevín / Infantil → 19:30 - 21:00 <br>Juvenil / Asoluto Masc / Absoluto Fem → 21:30 - 23:30</div>
-            <div class="dia"><b>Martes</b><br>Pre-Benjamín / Benjamin / Alevín A/B→ 19:00 - 20:00 <br>Alevín / Infantil → 20:00 - 21:30</div>
-            <div class="dia"><b>Miércoles</b><br>Alevín / Infantil → 19:00 - 20:30  <br>Juvenil / Asoluto Masc / Absoluto Fem → 21:30 - 23:30</div>
-            <div class="dia"><b>Jueves</b><br>Pre-Benjamín / Benjamin / Alevín A/B→ 19:00 - 20:00 <br>Alevín / Infantil → 19:00 - 20:30 <br>Juvenil / Asoluto Masc / Absoluto Fem → 21:30 - 23:30</div>
-            <div class="dia"><b>Viernes</b><br>Pre-Benjamín / Benjamin / Alevín / Infantil → 19:30 - 21:00 <br>Juvenil / Asoluto Masc / Absoluto Fem → 20:30 - 22:30</div>
+
+            <div class="dia">
+                <h3>Lunes</h3>
+
+                <div class="horario-grupo">
+                    <span class="categoria">Alevín / Infantil</span>
+                    <span class="hora">19:30 - 21:00</span>
+                </div>
+
+                <div class="horario-grupo">
+                    <span class="categoria">Juvenil / Absoluto Masculino / Absoluto Femenino</span>
+                    <span class="hora">21:30 - 23:30</span>
+                </div>
+            </div>
+
+
+            <div class="dia">
+                <h3>Martes</h3>
+
+                <div class="horario-grupo">
+                    <span class="categoria">Pre-Benjamín / Benjamín / Alevín </span>
+                    <span class="hora">19:00 - 20:00</span>
+                </div>
+
+                <div class="horario-grupo">
+                    <span class="categoria">Alevín / Infantil</span>
+                    <span class="hora">20:00 - 21:30</span>
+                </div>
+            </div>
+
+
+            <div class="dia">
+                <h3>Miércoles</h3>
+
+                <div class="horario-grupo">
+                    <span class="categoria">Alevín / Infantil</span>
+                    <span class="hora">19:00 - 20:30</span>
+                </div>
+
+                <div class="horario-grupo">
+                    <span class="categoria">Juvenil / Absoluto Masculino / Absoluto Femenino</span>
+                    <span class="hora">21:30 - 23:30</span>
+                </div>
+            </div>
+
+
+            <div class="dia">
+                <h3>Jueves</h3>
+
+                <div class="horario-grupo">
+                    <span class="categoria">Pre-Benjamín / Benjamín</span>
+                    <span class="hora">19:00 - 20:00</span>
+                </div>
+
+                <div class="horario-grupo">
+                    <span class="categoria">Alevín / Infantil</span>
+                    <span class="hora">19:00 - 20:30</span>
+                </div>
+
+                <div class="horario-grupo">
+                    <span class="categoria">Juvenil / Absoluto Masculino / Absoluto Femenino</span>
+                    <span class="hora">21:30 - 23:30</span>
+                </div>
+            </div>
+
+
+            <div class="dia">
+                <h3>Viernes</h3>
+
+                <div class="horario-grupo">
+                    <span class="categoria">Pre-Benjamín / Benjamín / Alevín / Infantil</span>
+                    <span class="hora">19:30 - 21:00</span>
+                </div>
+
+                <div class="horario-grupo">
+                    <span class="categoria">Juvenil / Absoluto Masculino / Absoluto Femenino</span>
+                    <span class="hora">20:30 - 22:30</span>
+                </div>
+            </div>
+
         </div>
-    </div>
-    `;
+    </div>`;
 }
 
 

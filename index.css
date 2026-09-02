@@ -409,6 +409,49 @@ h1{
     text-align: center;
 }
 
+/* HORARIOS */
+
+.dias{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dia{
+    background: white;
+    padding: 20px 25px;
+    border-radius: 12px;
+    border-left: 5px solid #ff3232;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.dia h3{
+    margin: 0 0 18px 0;
+    font-size: 22px;
+    color: #333;
+}
+
+.horario-grupo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 0;
+    border-top: 1px solid #eee;
+    text-align: left;
+}
+
+.categoria{
+    font-weight: bold;
+    color: #444;
+}
+
+.hora{
+    font-weight: bold;
+    color: #ff3232;
+    white-space: nowrap;
+}
+
                                 /* Sección de la galería de fotos */
 
 .galeria { /* esta sección es la de la galería de fotos, con una cuadrícula de fotos del club */
