@@ -592,7 +592,7 @@ document.addEventListener("keydown", function(e){ // Este evento escucha las tec
 });
 
 function toggleMenu(){ // Esta función muestra u oculta el menú de navegación en pantallas pequeñas, cambiando la propiedad de display del contenedor del menú entre "grid" y "none" */
-    const contenedor = document.getElementById(".contenedor");
+    const contenedor = document.querySelector(".contenedor");
 
     if (contenedor.style.display === "grid" || contenedor.style.display === "flex") {
         contenedor.style.display = "none";
