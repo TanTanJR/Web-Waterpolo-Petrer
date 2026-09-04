@@ -765,24 +765,24 @@ h1{
                         /* Sección de las barras laterales (sponsors y redes sociales) */
 
 
-.layout-principal{ /* esta sección es el contenedor principal que organiza el contenido central y las barras laterales */
+.layout-principal{
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 40px;
+    gap: 25px;
     width: 95%;
+    max-width: 1400px;
     margin: 40px auto;
 }
 
 .zona-central{
     flex: 1;
-    max-width: 900px;
+    max-width: 1000px;
 }
 
 .sidebar{
     width: 120px;
-    position: sticky;
-    top: 120px;
+    flex-shrink: 0;
 }
 .sidebar.izquierda{
     width: 150px;
