@@ -16,7 +16,8 @@ html, body {
     flex-wrap: wrap;
 }
 
-.logo{
+.logo.sin{
+    
     width: 60px;
 }
 
@@ -29,10 +30,10 @@ body{
 }
 
 .hero{ /* esta es la sección hero es la portada de la web */
-    width: 90%;
-    max-width: 1200px;
-    height: 400px;
-    margin: 30px auto 25px;
+    width: 92%;
+    max-width: 1250px;
+    height: 500px;
+    margin: 35px auto 30px;
     border-radius: 25px;
     overflow: hidden;
 
@@ -60,14 +61,14 @@ body{
 }
 
 .hero-overlay h2{
-    font-size: 42px;
-    margin-bottom: 15px;
+    font-size: 48px;
+    margin-bottom: 18px;
     font-weight: bold;
 }
 
 .hero-overlay p{
-    font-size: 22px;
-    margin-bottom: 25px;
+    font-size: 25px;
+    margin-bottom: 30px;
 }
 
 .hero-overlay button{
@@ -92,38 +93,45 @@ h1{
 }
 
 
-.intro{
-    margin: 20px auto 10px;
-    max-width: 800px;
-    font-size: 15px;
-    line-height: 1.6;
+.intro {
+    margin: 25px auto 20px;
+    max-width: 950px;
+    font-size: 21px;
+    line-height: 1.7;
+    font-weight: 600;
 }
-
-.contenedor{ /* esta sección es la de las tarjetas principales que llevan a cada sección del sitio */
+.contenedor {
     display: grid;
-    grid-template-columns: repeat(3, 220px);
-    gap: 25px;
-    justify-content: center;
-    width: 100%;
+
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+
+    width: 95%;
     max-width: 1000px;
-    margin: 45px auto 50px;
+
+    margin: 80px auto 0;
 }
 
-.card{ /* cada tarjeta ocupa el espacio de 2 columnas para que sean más grandes y llamativas */
-    grid-column: auto;
 
+/* Cada tarjeta ocupa una columna completa */
+.card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    width: 220px;
-    height: 190px;
+    width: 100%;
+    min-height: 220px;
+
+    padding: 30px 35px;
+    box-sizing: border-box;
 
     background: rgba(255,255,255,0.9);
     color: #1f1f1f;
 
     border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.4);
+
     cursor: pointer;
 
     font-size: 20px;
@@ -135,37 +143,42 @@ h1{
     transition: all 0.3s ease;
 
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.4);
 }
 
-.card span{
+
+.card span {
     font-size: 40px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-.card h3{
-    margin: 8px 0;
-    font-size: 20px;
+
+.card h3 {
+    margin: 0 0 10px;
+    font-size: 24px;
 }
 
-.card p{
-    font-size: 14px;
+
+.card p {
+    font-size: 17px;
+    line-height: 1.6;
     font-weight: normal;
-    margin-top: 8px;
+    margin: 8px 0 0;
     color: black;
 }
 
-.card.rojo{ /* esta clase se le asigna a la tarjeta de "Partidos" para que resalte más */
+
+.card.rojo {
+    /* Tarjetas que queremos destacar */
     background: linear-gradient(135deg, #ff3232, #c91818);
     color: white;
 }
 
 
-.card:hover{
-    
+.card:hover {
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 }
+
 
 .ubicacion{ /* esta sección es la de la ubicación del club, con un mapa de google maps */
     background: white;
@@ -185,30 +198,78 @@ h1{
     font-weight: bold;
 }
 
+/* EQUIPOS */
+
 .equipos{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 10px 0;
+    gap: 25px;
+    padding: 15px 0;
 }
 
 .equipos > div{
     background: white;
     border-radius: 20px;
-    padding: 25px;
+    padding: 30px 20px;
+    min-height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    border-left: 6px solid #ff3232;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    color: #222;
+
+    border-left: 7px solid #ff3232;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+
     transition: all 0.3s ease;
 }
 
 .equipos > div:hover{
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transform: translateY(-7px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
 }
 
+.equipos > div::before{
+    margin-right: 12px;
+    font-size: 28px;
+}
+
+.equipos > div:nth-child(1)::before{
+    content: "🏊";
+}
+
+.equipos > div:nth-child(2)::before{
+    content: "🏊";
+}
+
+.equipos > div:nth-child(3)::before{
+    content: "🤽";
+}
+
+.equipos > div:nth-child(4)::before{
+    content: "🤽";
+}
+
+.equipos > div:nth-child(5)::before{
+    content: "🤽";
+}
+
+.equipos > div:nth-child(6)::before{
+    content: "🤽";
+}
+
+.equipos > div:nth-child(7)::before{
+    content: "🤽";
+}
+
+.equipos > div:nth-child(8)::before{
+    content: "🤽";
+}
 
 .partidos{ /* esta sección es la de los partidos, con un calendario de los próximos partidos y una breve descripción de cada uno */
     
@@ -307,24 +368,22 @@ h1{
 }
 
 #contenido{ /* esta sección es la que contiene el contenido principal de cada sección, como el calendario de partidos, la galería de fotos, etc. */
-    width: 100%;
-    max-width: 1050px;
-    box-sizing: border-box;
-    margin: 45px auto;
-    padding: 25px;
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
 }
 .seccion-box{ /* esta sección es el contenedor de cada sección principal */
     background: rgba(255,255,255,0.95);
-    border-radius: 28px;
-    padding: 40px;
+    border-radius: 25px;
+    padding: 35px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     backdrop-filter: blur(10px);
     animation: aparecer 0.4s ease;
-    
 }
 .seccion-titulo{ /* esta clase se le asigna al título de cada sección para que tenga un estilo uniforme */
-    font-size: 36px;
-    margin-bottom: 30px;
+    font-size: 34px;
+    margin-bottom: 25px;
     color: #1f1f1f;
     font-weight: bold;
     border-bottom: 3px solid #ff3232;
@@ -386,6 +445,15 @@ h1{
     
 }
 
+.dia { /* esta clase se le asigna a cada día del calendario de partidos para que tenga un estilo uniforme */
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    color: black;
+    width: 550px;
+    text-align: center;
+}
+
 /* HORARIOS */
 
 .dias{
@@ -428,7 +496,6 @@ h1{
     color: #ff3232;
     white-space: nowrap;
 }
-
 
                                 /* Sección de la galería de fotos */
 
@@ -479,26 +546,28 @@ h1{
     position: absolute;
     top: 20px;
     right: 30px;
-    font-size: 25px;
+    font-size: 30px;
     color: white;
     cursor: pointer;
+    font-size: 25px;
 }
 
 .flecha { /* esta clase se le asigna a las flechas de navegación del lightbox para que tengan un estilo uniforme */
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 25px;
+    font-size: 40px;
     color: white;
     cursor: pointer;
     padding: 10px;
+    font-size: 25px;
 }
 
-.flecha.izquierda {
+.izquierda {
     left: 20px;
 }
 
-.flecha.derecha {
+.derecha {
     right: 20px;
 }
 
@@ -521,6 +590,8 @@ h1{
     bottom: 20px;
     display: flex;
     gap: 10px;
+    width: 40px;
+    height: 30px;
 }
 
 .miniaturas img {
@@ -637,16 +708,6 @@ h1{
     margin-bottom: 20px;
 }
 
-/* Imágenes de los productos: se mantienen dentro de un tamaño controlado */
-.producto-card img {
-    width: 180px;
-    height: 180px;
-    object-fit: contain;
-    border-radius: 12px;
-    margin: 0 auto 15px;
-    display: block;
-}
-
 .btn-comprar {
     border: none;
     padding: 11px 22px;
@@ -663,27 +724,44 @@ h1{
     background: #d90000;
 }
 
-.btn-inicio{
-    display: block;
-    margin: 25px auto 10px;
-    padding: 8px 18px;
-
-    background: transparent;
-    color: #4b2e3f;
-
-    border: 1px solid #b48a9c;
-    border-radius: 20px;
-
-    font-size: 14px;
-    cursor: pointer;
-
-    transition: all 0.3s ease;
+.tienda{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 25px;
 }
 
-.btn-inicio:hover{
-    background: #b48a9c;
-    color: white;
-    transform: translateY(-2px);
+.producto{
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 6px solid #ff3232;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.producto:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+
+.producto img{
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.producto h3{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.producto p{
+    margin: 0;
+    color: #666;
 }
 
 .nombre-dia{ /* esta clase se le asigna a los nombres de los días de la semana para que tengan un estilo uniforme */
@@ -736,16 +814,14 @@ h1{
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 18px;
-    width: 96%;
-    max-width: 1450px;
-    margin: 35px auto 60px;
+    gap: 40px;
+    width: 95%;
+    margin: 40px auto;
 }
 
 .zona-central{
     flex: 1;
-    max-width: 1100px;
-    min-width: 0;
+    max-width: 900px;
 }
 
 .sidebar{
@@ -754,7 +830,7 @@ h1{
     top: 120px;
 }
 .sidebar.izquierda{
-    width: 125px;
+    width: 150px;
     height: 700px;   /* altura visible del carrusel */
     overflow: hidden;
     position: sticky;
@@ -762,10 +838,16 @@ h1{
 }
 
 
+.izquierda{
+    left: 100px;
+}
+.derecha{
+    right: 100px;
+}
 .sponsor{
     background: white;
-    padding: 8px;
-    margin-bottom: 12px;
+    padding: 10px;
+    margin-bottom: 15px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     transition: 0.3s;
@@ -819,8 +901,8 @@ h1{
 }
 
 .social-link{ /* esta clase se le asigna a cada enlace de red social para que tengan un estilo uniforme */
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -867,6 +949,138 @@ footer{
     color: white;
 }
 
+/* =========================
+   PRÓXIMOS PARTIDOS
+========================= */
+
+.partidos-intro {
+    text-align: center;
+    font-size: 18px;
+    margin: 10px auto 30px;
+    color: #444;
+}
+
+.lista-partidos {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.jornada-partidos {
+    background: #f8f8f8;
+    border-radius: 20px;
+    padding: 25px;
+    border-left: 6px solid #ff3232;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+}
+
+.fecha-partido {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.ubicacion-partido {
+    font-size: 17px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.partido-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background: white;
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+
+    transition: all 0.3s ease;
+}
+
+.partido-item:last-child {
+    margin-bottom: 0;
+}
+
+.partido-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.14);
+}
+
+.partido-hora {
+    min-width: 70px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    color: #ff3232;
+}
+
+.partido-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.partido-categoria {
+    font-size: 18px;
+    font-weight: bold;
+    color: #777;
+    text-transform: uppercase;
+}
+
+.partido-info strong {
+    font-size: 19px;
+    color: #222;
+}
+
+.ubicacion-partido {
+    font-size: 18px;
+}
+
+.fecha-partido {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.vs {
+    color: #ff3232;
+    margin: 0 8px;
+    font-size: 14px;
+}
+
+/* =========================
+   TARJETAS MÁS GRANDES
+========================= */
+
+.card {
+    min-height: 190px;
+    padding: 30px 25px;
+}
+
+.card-icon {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    font-size: 24px;
+    margin: 8px 0 12px;
+}
+
+.card p {
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 0;
+}
+
 @keyframes aparecer{ /* esta animación hace que las secciones principales del sitio aparezcan con un efecto de fade-in y deslizamiento desde abajo */
     from{
         opacity: 0;
@@ -876,6 +1090,397 @@ footer{
     to{
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) { /* este bloque de estilos se aplica cuando la pantalla tiene un ancho máximo de 768px, es decir, en dispositivos móviles */
+    .header{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    h1{
+        font-size: 28px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .logo{
+        width: 100px;
+    }
+}
+
+@media (max-width: 768px){ /* en este bloque de estilos se ajusta la sección hero para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un texto más legible */
+    .hero {
+        width: 90%;
+        max-width: 1200px;
+        height: 400px;
+
+        margin: 30px auto 25px;
+
+        border-radius: 25px;
+
+        background-size: cover;
+        background-position: center;
+
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-overlay h2{
+        font-size: 26px;
+    }
+
+    .hero-overlay p{
+        font-size: 16px;
+    }
+
+    .hero-overlay button{
+        font-size: 15px;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* TARJETAS EN MÓVIL */
+    .contenedor {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+
+        width: 92%;
+        max-width: 600px;
+
+        margin: 40px auto;
+    }
+
+    .card {
+        width: 100%;
+        min-height: 165px;
+
+        padding: 20px 15px;
+        box-sizing: border-box;
+
+        font-size: 16px;
+    }
+
+    .card-icon {
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+
+    .card h3 {
+        font-size: 20px;
+        margin: 5px 0 8px;
+    }
+
+    .card p {
+        font-size: 15px;
+        line-height: 1.4;
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px) { /* en este bloque de estilos se ajusta el contenido principal de cada sección para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un texto más legible */
+    #contenido{
+        width: 95%;
+        font-size: 16px;
+    }
+
+    .dia,
+    .equipos,
+    .partidos,
+    .contacto,
+    .ubicacion{
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 768px){
+
+    .equipos{
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .equipos > div{
+        padding: 22px 15px;
+        min-height: 70px;
+        font-size: 17px;
+    }
+
+    .equipos > div::before{
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .dia {
+        width: 100%;
+        padding: 22px 18px;
+        font-size: 15px;
+    }
+
+    .dia b {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) { /* en este bloque de estilos se ajusta la sección de la galería de fotos para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un diseño más vertical */
+    .galeria img{
+        width: 45%;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) { /* en este bloque de estilos se ajusta el lightbox de la galería de fotos para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un diseño más vertical */
+    #imagenGrande{
+        max-width: 95%;
+        max-height: 60%;
+    }
+
+    .miniaturas{
+        bottom: 10px;
+        gap: 5px;
+    }
+
+    .miniaturas img{
+        width: 45px;
+        height: 35px;
+    }
+}
+
+
+@media (max-width: 768px){ /* en este bloque de estilos se ajusta la sección de la ubicación para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un diseño más vertical */
+    .ubicacion iframe{
+        width: 100%;
+        height: 400px;
+        border: 0;
+        border-radius: 15px;
+        display: block;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 768px) { /* en este bloque de estilos se ajusta la sección de los partidos para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un diseño más vertical */
+    .calendario-header {
+        flex-direction: row;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .calendario-header h3 {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .calendario-header button {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .calendario-grid {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 6px;
+    }
+
+    .dia-calendario {
+        padding: 12px 0;
+        font-size: 14px;
+        border-radius: 10px;
+        min-height: 45px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .detalle-partido {
+        margin-top: 20px;
+        padding: 15px;
+    }
+
+    .partido-card {
+        padding: 15px;
+        border-radius: 14px;
+    }
+
+    .partido-linea {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        font-size: 14px;
+    }
+    .partidos-intro {
+    font-size: 16px;
+    }
+
+    .jornada-partidos {
+        padding: 20px 15px;
+    }
+
+    .fecha-partido {
+        font-size: 20px;
+    }
+
+    .ubicacion-partido {
+        font-size: 15px;
+    }
+
+    .partido-item {
+        gap: 12px;
+        padding: 14px;
+        }
+
+    .partido-hora {
+        min-width: 55px;
+        font-size: 17px;
+    }
+
+    .partido-info strong {
+        font-size: 15px;
+    }
+
+    .partido-categoria {
+        font-size: 12px;
+    }
+}
+
+/* =========================
+   TEXTOS MÁS VISIBLES
+========================= */
+
+@media (max-width: 768px) {
+
+    body {
+        font-size: 17px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 27px;
+    }
+
+    h3 {
+        font-size: 21px;
+    }
+
+    .card h3 {
+        font-size: 22px;
+    }
+
+    .card p {
+        font-size: 16px;
+    }
+
+    .intro {
+        font-size: 18px;
+    }
+
+    .seccion-titulo {
+        font-size: 26px;
+    }
+}
+
+
+@media (max-width: 480px) { /* en este bloque de estilos se ajusta aún más la sección de los partidos para que se vea bien en pantallas muy pequeñas, con un tamaño más compacto y un diseño más vertical */
+    .calendario-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px){ /* en este bloque de estilos se ajusta la sección de los partidos para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un diseño más vertical */
+
+    .calendario-header{
+        gap: 12px;
+        margin-bottom: 18px;
+    }
+
+    .calendario-header h3{
+        font-size: 18px;
+        margin: 0;
+        flex: 1;
+        text-align: center;
+    }
+
+    .calendario-grid{
+        gap: 6px;
+    }
+
+    .dia-calendario,
+    .nombre-dia,
+    .dia-vacio{
+        min-height: 48px;
+        padding: 10px 0;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .detalle-partido{
+        padding: 15px;
+    }
+
+    .partido-card{
+        padding: 18px;
+    }
+
+    .partido-linea{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 769px) {
+
+     .zona-central {
+        flex: 1;
+        max-width: 1100px;
+        min-width: 0;
+    }
+
+}
+
+@media (max-width: 768px) { /* esto sirve para esconder las barras laterales en pantallas pequeñas */
+    .sidebar, .redes {
+        display: none;
+    }
+}
+
+@media (max-width: 768px){ /*esto sirve para que en pantallas pequeñas los dias de la semana no se muestren */
+    .nombre-dia{
+        display: none;
+        
+    }
+}
+
+@media (max-width: 768px) { /* En móvil se ponen abajo en horizontal */
+    .redes {
+        right: 10px;
+        top: auto;
+        bottom: 20px;
+        flex-direction: row;
+    }
+
+    .social-link {
+        width: 50px;
+        height: 50px;
     }
 }
 
@@ -922,185 +1527,7 @@ footer{
         height: 100%;
     }
 }
-
-@media (max-width: 768px) { /* este bloque de estilos se aplica cuando la pantalla tiene un ancho máximo de 768px, es decir, en dispositivos móviles */
-    .header {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    h1 {
-        font-size: 28px;
-        margin-top: 10px;
-        text-align: center;
-    }
-
-    .logo {
-        width: 100px;
-    }
-
-    .hero {
-        width: 95%;
-        height: 250px;
-        margin: 20px auto;
-    }
-
-    .hero-overlay h2 {
-        font-size: 26px;
-    }
-
-    .hero-overlay p {
-        font-size: 16px;
-    }
-
-    .hero-overlay button {
-        font-size: 15px;
-        padding: 12px 20px;
-    }
-
-    .contenedor { /* En móvil se ponen abajo en horizontal */
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        width: 90%;
-        margin: 30px auto;
-    }
-
-    .card {
-        width: 100%;
-        height: 140px;
-        font-size: 16px;
-    }
-
-    #contenido { /* en este bloque de estilos se ajusta el contenido principal de cada sección para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un texto más legible */
-        width: 95%;
-        font-size: 16px;
-    }
-
-    .dia,
-    .equipos,
-    .partidos,
-    .contacto,
-    .ubicacion {
-        width: 100%;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-
-    .equipos {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .equipos > div {
-        padding: 22px 15px;
-        font-size: 16px;
-    }
-
-    .dia {
-        width: 100%;
-        padding: 22px 18px;
-        font-size: 15px;
-    }
-
-    .dia b {
-        font-size: 18px;
-    }
-
-    .galeria img { /* en este bloque de estilos se ajusta la sección de la galería de fotos para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un diseño más vertical */
-        width: 45%;
-        height: auto;
-    }
-
-    #imagenGrande { /* en este bloque de estilos se ajusta el lightbox de la galería de fotos para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un diseño más vertical */
-        max-width: 95%;
-        max-height: 60%;
-    }
-
-    .miniaturas {
-        bottom: 10px;
-        gap: 5px;
-    }
-
-    .miniaturas img {
-        width: 45px;
-        height: 35px;
-    }
-
-    .ubicacion iframe { /* en este bloque de estilos se ajusta la sección de la ubicación para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un diseño más vertical */
-        width: 100%;
-        height: 400px;
-        border: 0;
-        border-radius: 15px;
-        display: block;
-        box-sizing: border-box;
-    }
-
-    .calendario-header { /* en este bloque de estilos se ajusta la sección de los partidos para que se vea bien en pantallas pequeñas, con un tamaño más compacto y un diseño más vertical */
-        flex-direction: row;
-        gap: 12px;
-        margin-bottom: 18px;
-        padding: 10px;
-    }
-
-    .calendario-header h3 {
-        font-size: 18px;
-        margin: 0;
-        flex: 1;
-        text-align: center;
-    }
-
-    .calendario-header button {
-        padding: 8px 12px;
-        border: none;
-        border-radius: 10px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    .calendario-grid {
-        grid-template-columns: repeat(7, 1fr);
-        gap: 6px;
-    }
-
-    .dia-calendario,
-    .nombre-dia,
-    .dia-vacio {
-        min-height: 48px;
-        padding: 10px 0;
-        font-size: 14px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .detalle-partido {
-        margin-top: 20px;
-        padding: 15px;
-    }
-
-    .partido-card {
-        padding: 18px;
-        border-radius: 14px;
-    }
-
-    .partido-linea {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-        font-size: 14px;
-    }
-
-    /* esto sirve para esconder las barras laterales en pantallas pequeñas */
-    .sidebar,
-    .redes {
-        display: none;
-    }
-
-    /* esto sirve para que en pantallas pequeñas los dias de la semana no se muestren */
-    .nombre-dia {
-        display: none;
-    }
+@media (max-width: 768px) {
 
     .productos {
         grid-template-columns: 1fr;
@@ -1111,68 +1538,15 @@ footer{
         padding: 20px;
     }
 
-    .producto-card img {
-        width: 150px;
-        height: 150px;
-    }
 }
+@media (max-width: 768px){
 
-@media (max-width: 480px) { /* en este bloque de estilos se ajusta aún más la sección de los partidos para que se vea bien en pantallas muy pequeñas, con un tamaño más compacto y un diseño más vertical */
-    .calendario-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* ============================= */
-/* CORRECCIÓN SECCIÓN COMPRAS    */
-/* ============================= */
-.tienda {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    margin-top: 25px;
-}
-
-.producto {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    border-left: 6px solid #ff3232;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.producto:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-}
-
-.producto img {
-    width: 100%;
-    height: 220px;
-    object-fit: contain;
-    border-radius: 10px;
-}
-
-.producto h3 {
-    margin-top: 15px;
-    margin-bottom: 5px;
-}
-
-.producto p {
-    margin: 0;
-    color: #666;
-}
-
-@media (max-width: 768px) {
-    .tienda {
+    .tienda{
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    .producto img {
+    .producto img{
         height: 200px;
     }
 }

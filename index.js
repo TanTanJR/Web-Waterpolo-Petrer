@@ -140,10 +140,10 @@ function mostrarSeccion(seccion){
         <h2 class="seccion-titulo">👥 Equipos</h2>
     
         <div class="equipos">
-            <div>- Pre-Benjamin 2018 - 2019</div>
-            <div>- Benjamín 2016 - 2017</div>
-            <div>- Alevin 2014 - 2015</div>
-            <div>- Infantil 2012 - 2013</div>
+            <div>- Pre-Benjamin <br> 2018 - 2019</div>
+            <div>- Benjamín <br> 2016 - 2017</div>
+            <div>- Alevin <br> 2014 - 2015</div>
+            <div>- Infantil<br> 2012 - 2013</div>
             <div>- Juvenil</div>
             <div>- Absoluto Femenino</div>
             <div>- Absoluto Masculino B</div>
@@ -173,22 +173,101 @@ function mostrarSeccion(seccion){
         
     }
 
-    if (seccion === "partidos") { // Aquí se muestra el contenido de la sección de partidos, con una lista de los próximos partidos del club */
-       contenido.innerHTML = `
-    <div class="seccion-box">
-        <h2 class="seccion-titulo">📅 Próximos Partidos</h2>
+    if (seccion === "partidos") {
 
-        <div class="partidos">
-            <h2>Sin determinar</h2>
-            
-                <h2></h2>
-               
-            
-        </div>
-    </div>
-    
-`;
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
+
+    const proximosPartidos = partidosCalendario.filter(jornada => {
+        const fechaPartido = new Date(jornada.fecha + "T00:00:00");
+        return fechaPartido >= hoy;
+    });
+
+    let html = `
+        <div class="seccion-box">
+            <h2 class="seccion-titulo">📅 Próximos Partidos</h2>
+
+            <p class="partidos-intro">
+                Consulta los próximos encuentros de nuestros equipos.
+            </p>
+
+            <div class="lista-partidos">
+    `;
+
+    if (proximosPartidos.length === 0) {
+
+        html += `
+            <div class="sin-partidos">
+                <span>🏊</span>
+                <h3>No hay próximos partidos</h3>
+                <p>En estos momentos no hay partidos programados.</p>
+            </div>
+        `;
+
+    } else {
+
+        proximosPartidos.forEach(jornada => {
+
+            const fecha = new Date(jornada.fecha + "T00:00:00");
+
+            const fechaTexto = fecha.toLocaleDateString("es-ES", {
+                weekday: "long",
+                day: "numeric",
+                month: "long"
+            });
+
+            html += `
+                <div class="jornada-partidos">
+
+                    <div class="fecha-partido">
+                        📅 ${fechaTexto}
+                    </div>
+
+                    <div class="ubicacion-partido">
+                        📍 ${jornada.ubicacion}
+                    </div>
+            `;
+
+            jornada.partidos.forEach(partido => {
+
+                html += `
+                    <div class="partido-item">
+
+                        <div class="partido-hora">
+                            ${partido.hora}
+                        </div>
+
+                        <div class="partido-info">
+
+                            <span class="partido-categoria">
+                                ${partido.categoria}
+                            </span>
+
+                            <strong>
+                                CW Petrer
+                                <span class="vs">VS</span>
+                                ${partido.rival}
+                            </strong>
+
+                        </div>
+
+                    </div>
+                `;
+            });
+
+            html += `
+                </div>
+            `;
+        });
     }
+
+    html += `
+            </div>
+        </div>
+    `;
+
+    contenido.innerHTML = html;
+}
 
     if (seccion === "contacto") {
     contenido.innerHTML = `
