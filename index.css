@@ -701,54 +701,57 @@ h1{
 
                         /* Sección de las barras laterales (sponsors y redes sociales) */
 
-.layout-principal{ /* esta sección es el contenedor principal que organiza el contenido central y las barras laterales */
-    display: flex;
+.layout-principal{ /* organiza patrocinadores, contenido y redes en tres columnas estables */
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1100px) 120px;
     justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
-    width: 95%;
+    align-items: start;
+    gap: 32px;
+    width: calc(100% - 48px);
+    max-width: 1466px;
     margin: 40px auto;
+    box-sizing: border-box;
 }
 
 .zona-central{
-    flex: 1;
-    max-width: 900px;
+    width: 100%;
+    min-width: 0;
 }
 
 .sidebar{
-    width: 120px;
+    width: 100%;
     position: sticky;
-    top: 120px;
-}
-.sidebar.izquierda{
-    width: 150px;
-    height: 700px;   /* altura visible del carrusel */
-    overflow: hidden;
-    position: sticky;
-    top: 120px;
+    top: 100px;
 }
 
 .sidebar.izquierda{
-    left: 100px;
+    height: min(700px, calc(100vh - 140px)); /* zona visible del carrusel */
+    min-height: 500px;
+    overflow: hidden;
 }
+
 .sidebar.derecha{
-    right: 100px;
+    justify-self: end;
 }
 .sponsor{
-    background: white;
+    height: 120px;
     padding: 10px;
-    margin-bottom: 15px;
+    box-sizing: border-box;
+    background: white;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .sponsor img{
+    display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: contain;
-    border-radius: 20px;
-
+    border-radius: 8px;
 }
 
 .sponsor:hover{
@@ -770,7 +773,8 @@ h1{
     }
 
     100% {
-        transform: translateY(-50%);
+        /* Compensa la mitad del hueco central entre las dos copias */
+        transform: translateY(calc(-50% - 7.5px));
     }
 }
 
@@ -1326,18 +1330,25 @@ footer{
     }
 }
 
-@media (max-width: 1400px) { /* en este bloque de estilos se ajusta el tamaño de las barras laterales y los enlaces de redes sociales para que se vean bien en pantallas medianas, con un tamaño más compacto */
-    .sidebar {
-        width: 90px;
+@media (max-width: 1400px) { /* compacta las columnas laterales sin desplazar el contenido */
+    .layout-principal {
+        grid-template-columns: 125px minmax(0, 1fr) 80px;
+        gap: 24px;
     }
 
     .social-link {
         width: 60px;
         height: 60px;
+        box-sizing: border-box;
     }
 }
 
-@media (max-width: 1200px) { /* en este bloque de estilos se ajusta el diseño para que en pantallas medianas las barras laterales se oculten y solo se muestren los enlaces de redes sociales en la parte inferior derecha */
+@media (max-width: 1200px) { /* al ocultar las barras, el contenido vuelve a ocupar todo el ancho */
+    .layout-principal {
+        display: block;
+        width: min(100% - 32px, 1100px);
+    }
+
     .sidebar {
         display: none;
     }
