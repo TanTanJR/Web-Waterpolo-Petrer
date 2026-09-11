@@ -735,7 +735,7 @@ h1{
 }
 
 .sponsors-viewport{
-    height: 740px; /* antes eran 700px: solo lo alargamos un poco */
+    height: 900px; /* llega aproximadamente hasta la última fila: Calendario y Compras */
     padding-top: 14px; /* separa los logotipos del título */
     overflow: hidden;
     box-sizing: border-box;
