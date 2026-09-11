@@ -31,7 +31,7 @@ function generarCalendario() { // Esta función genera el calendario del mes act
     <div class="nombre-dia">D</div>
 `;
 for (let i = 0; i < primerDia; i++) { // Agrega días vacíos al inicio del mes para alinear el primer día correctamente */
-    html += `<div class="dia-vacio"></div>`;
+    html += `<div class="dia-vacio" aria-hidden="true"></div>`;
 }
 
 
@@ -40,11 +40,15 @@ for (let i = 0; i < primerDia; i++) { // Agrega días vacíos al inicio del mes 
 
         const hayPartido = partidosCalendario.find(p => p.fecha === fechaTexto);
 
+        const descripcionDia = `${dia} de ${meses[mes]} de ${año}${hayPartido ? ", tiene partidos" : ", sin partidos"}`;
+
         html += `
-            <div class="dia-calendario ${hayPartido ? "partido-dia" : ""}"
-                 onclick="mostrarDetalle('${fechaTexto}')">
+            <button type="button"
+                    class="dia-calendario ${hayPartido ? "partido-dia" : ""}"
+                    onclick="mostrarDetalle('${fechaTexto}')"
+                    aria-label="${descripcionDia}">
                 ${dia}
-            </div>`;
+            </button>`;
     }
 
     calendario.innerHTML = html;
