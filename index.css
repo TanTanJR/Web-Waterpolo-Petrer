@@ -643,6 +643,7 @@ h1{
 .producto{
     width: 100%;
     padding: 20px;
+    box-sizing: border-box;
     border: none;
     border-left: 6px solid #ff3232;
     background: white;
