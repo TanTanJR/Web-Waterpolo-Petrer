@@ -346,17 +346,9 @@ h1{
     transition: 0.3s;
 }
 
-.btn-email:not(:disabled):hover{
+.btn-email:hover{
     transform: scale(1.05);
     background: #e62222;
-}
-
-.btn-email-pendiente:disabled{
-    border: none;
-    background: #6b6b6b;
-    color: white;
-    cursor: not-allowed;
-    opacity: 0.85;
 }
 
 .btn-instagram{
