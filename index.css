@@ -676,6 +676,57 @@ h1{
     color: #666;
 }
 
+/* Carrusel de gorros dentro de su tarjeta */
+.producto.gorros{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+}
+
+.gorros #imagenGorro{
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+}
+
+.gorros h3{
+    margin: 15px 0 5px;
+}
+
+.flecha-gorro{
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    transform: translateY(-75%);
+    background: rgba(31,31,31,0.82);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.flecha-gorro:hover{
+    background: #ff3232;
+    transform: translateY(-75%) scale(1.08);
+}
+
+.flecha-gorro.izquierda{
+    left: 14px;
+}
+
+.flecha-gorro.derecha{
+    right: 14px;
+}
+
 .nombre-dia{ /* esta clase se le asigna a los nombres de los días de la semana para que tengan un estilo uniforme */
     font-weight: bold;
     text-align: center;
