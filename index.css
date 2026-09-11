@@ -17,7 +17,7 @@ html, body {
 }
 
 .logo{
-    width: 90px;
+    width: 130px;
     aspect-ratio: 1;
     padding: 10px;
     box-sizing: border-box;
@@ -30,6 +30,8 @@ html, body {
 
 .header h1{
     margin: 20px 0;
+    font-size: clamp(42px, 3vw, 52px);
+    line-height: 1.1;
 }
 
 body{
