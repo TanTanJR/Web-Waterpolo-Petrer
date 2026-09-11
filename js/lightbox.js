@@ -81,7 +81,7 @@ function abrirProducto(index) {
     const productos = [
         {
             nombre: "Abanicos",
-            imagenes: ["abanicos.jpg"]
+            imagenes: ["abanicos.webp"]
         },
         {
             nombre: "Bañador",

@@ -344,7 +344,7 @@ if (seccion === "compras") {
             <div class="tienda">
 
                 <button type="button" class="producto" onclick="abrirProducto(0)">
-                    <img src="imagenes/productos/abanicos.jpg" alt="Abanicos del club" loading="lazy" decoding="async">
+                    <img src="imagenes/productos/abanicos.webp" alt="Abanicos del club" loading="lazy" decoding="async">
                     <h3>Abanicos</h3>
                     <p>Material oficial del club</p>
                 </button>
