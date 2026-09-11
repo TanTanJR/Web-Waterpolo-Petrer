@@ -31,7 +31,9 @@ El proyecto está construido con HTML, CSS y JavaScript, sin frameworks externos
 ```text
 Web-Waterpolo-Petrer/
 ├── datos/
-│   └── partidos.js
+│   ├── horarios.js
+│   ├── partidos.js
+│   └── productos.js
 ├── imagenes/
 │   ├── contacto/
 │   ├── galeria/
@@ -92,6 +94,14 @@ Los datos están en `datos/partidos.js`. Cada jornada utiliza esta estructura:
 ```
 
 La fecha debe escribirse en formato `AAAA-MM-DD`.
+
+## Actualizar horarios y productos
+
+- Los horarios de entrenamiento se modifican en `datos/horarios.js`.
+- El catálogo y las imágenes de los productos se modifican en `datos/productos.js`.
+- Las funciones de `js/secciones.js` crean automáticamente el HTML a partir de esos datos.
+
+Separar los datos del diseño permite actualizar el contenido sin buscarlo dentro de funciones largas ni repetirlo en varios archivos.
 
 ## Contacto del club
 
