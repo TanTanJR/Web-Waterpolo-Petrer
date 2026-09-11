@@ -5,6 +5,7 @@ let listaImagenes = [];
 let productoActual = 0;
 let imagenProductoActual = 0;
 let listaProductos = [];
+let tipoLightbox = "galeria";
 
 const partidosCalendario = [ // Aquí se pueden agregar más partidos con su fecha, ubicación y detalles */
     {
@@ -524,6 +525,7 @@ function actualizarContador(){// Esta función actualiza el contador que muestra
 }
 
 function abrirImagen(index){ // Esta función abre la imagen seleccionada en el lightbox, mostrando la imagen grande y generando las miniaturas de navegación, además de actualizar el contador de imágenes */
+    tipoLightbox = "galeria";
     imagenActual = index;
 
     const lightbox = document.getElementById("lightbox");
@@ -532,7 +534,9 @@ function abrirImagen(index){ // Esta función abre la imagen seleccionada en el 
     imagen.src = "imagenes/galeria/" + listaImagenes[imagenActual];
     lightbox.style.display = "flex";
 
-   
+    document.querySelectorAll("#lightbox .flecha").forEach(flecha => {
+        flecha.style.display = "block";
+    });
 
     let miniaturas = "<div class='miniaturas'>";
 
@@ -556,6 +560,7 @@ function abrirImagen(index){ // Esta función abre la imagen seleccionada en el 
 
 function abrirProducto(index) {
 
+    tipoLightbox = "producto";
     productoActual = index;
     imagenProductoActual = 0;
 
@@ -591,6 +596,13 @@ function abrirProducto(index) {
 
     lightbox.style.display = "flex";
 
+    const miniaturas = lightbox.querySelector(".miniaturas");
+    if (miniaturas) miniaturas.remove();
+
+    document.querySelectorAll("#lightbox .flecha").forEach(flecha => {
+        flecha.style.display = listaProductos.length > 1 ? "block" : "none";
+    });
+
     actualizarContadorProducto();
 }
 
@@ -608,7 +620,7 @@ function cambiarImagenProducto(direccion) {
 
     const imagen = document.getElementById("imagenGrande");
 
-    imagen.src = "imagenes/compras/" + listaProductos[imagenProductoActual];
+    imagen.src = "imagenes/productos/" + listaProductos[imagenProductoActual];
 
     actualizarContadorProducto();
 }
@@ -632,6 +644,11 @@ function actualizarMiniaturas(){ // Esta función actualiza las miniaturas de na
 }
 
 function cambiarImagen(direccion){ // Esta función cambia la imagen mostrada en el lightbox, sumando o restando a la posición actual de la imagen y actualizando la imagen grande, el contador y las miniaturas */
+
+    if (tipoLightbox === "producto") {
+        cambiarImagenProducto(direccion);
+        return;
+    }
 
     const img = document.getElementById("imagenGrande");
 
