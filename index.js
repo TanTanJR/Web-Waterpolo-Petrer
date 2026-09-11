@@ -655,15 +655,14 @@ document.addEventListener("keydown", function(e){ // Este evento escucha las tec
     }
 });
 
-function toggleMenu(){ // Esta función muestra u oculta el menú de navegación en pantallas pequeñas, cambiando la propiedad de display del contenedor del menú entre "grid" y "none" */
-    const contenedor = document.querySelector(".contenedor");
+function toggleMenu(boton){ // Muestra u oculta las tarjetas y comunica su estado a lectores de pantalla */
+    const contenedor = document.getElementById("menu-tarjetas");
+    const estaOculto = contenedor.style.display === "none";
 
-    if (contenedor.style.display === "grid" || contenedor.style.display === "flex") {
-        contenedor.style.display = "none";
-    } else {
-        contenedor.style.display = "grid";
-    }
-};
+    contenedor.style.display = estaOculto ? "grid" : "none";
+    boton.setAttribute("aria-expanded", String(estaOculto));
+    boton.textContent = estaOculto ? "☰ Ocultar menú" : "☰ Mostrar menú";
+}
 
 /*Hacer que en el calendario al pulsar un día se baje la pantalla como estamos haciendo con los botones y contenido */
 const gorros = [
