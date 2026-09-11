@@ -363,7 +363,7 @@ if (seccion === "compras") {
 
                 <div class="producto gorros">
 
-                    <button class="flecha-gorro izquierda" onclick="cambiarGorro(-1)">
+                    <button type="button" class="flecha-gorro izquierda" onclick="cambiarGorro(-1)" aria-label="Gorro anterior">
                         ❮
                     </button>
 
@@ -373,7 +373,7 @@ if (seccion === "compras") {
                         loading="lazy"
                         decoding="async">
 
-                    <button class="flecha-gorro derecha" onclick="cambiarGorro(1)">
+                    <button type="button" class="flecha-gorro derecha" onclick="cambiarGorro(1)" aria-label="Gorro siguiente">
                         ❯
                     </button>
 
