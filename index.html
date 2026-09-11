@@ -12,6 +12,8 @@
 
 <body>
 
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
     <!-- HEADER -->
     <header class="header">
         <img src="imagenes/logo.sin.png" class="logo" alt="Logo Club Waterpolo Petrer">
@@ -45,7 +47,7 @@
 
 
     <!-- CONTENIDO PRINCIPAL -->
-    <main class="layout-principal">
+    <main class="layout-principal" id="contenido-principal">
 
         <!-- PATROCINADORES -->
         <aside class="sidebar izquierda">
@@ -203,21 +205,25 @@
 
 
     <!-- LIGHTBOX GALERÍA -->
-    <div id="lightbox">
+    <div id="lightbox"
+         role="dialog"
+         aria-modal="true"
+         aria-label="Visor de imágenes"
+         aria-hidden="true">
 
-        <span class="cerrar" onclick="cerrarImagen()">✖</span>
+        <button type="button" class="cerrar" onclick="cerrarImagen()" aria-label="Cerrar visor">✖</button>
 
-        <span class="flecha izquierda" onclick="cambiarImagen(-1)">
+        <button type="button" class="flecha izquierda" onclick="cambiarImagen(-1)" aria-label="Imagen anterior">
             ❮
-        </span>
+        </button>
 
         <img id="imagenGrande" alt="Imagen de la galería">
 
-        <span class="flecha derecha" onclick="cambiarImagen(1)">
+        <button type="button" class="flecha derecha" onclick="cambiarImagen(1)" aria-label="Imagen siguiente">
             ❯
-        </span>
+        </button>
 
-        <span id="contador"></span>
+        <span id="contador" role="status" aria-live="polite"></span>
 
     </div>
 
