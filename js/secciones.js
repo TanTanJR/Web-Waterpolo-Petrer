@@ -121,7 +121,7 @@ function mostrarSeccion(seccion){
 
         let html = "<h2>Galería</h2><div class='galeria'>";
 
-        listaImagenes = ["foto1.jpg", "foto2.jpg","foto3.jpg", "foto4.jpg", "foto5.jpg"];
+        listaImagenes = ["foto1.webp", "foto2.webp","foto3.webp", "foto4.webp", "foto5.webp"];
 
         listaImagenes.forEach((img, index) => {
             const numero = index + 1;
