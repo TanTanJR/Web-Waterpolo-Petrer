@@ -1,13 +1,12 @@
-/* Carrusel de gorros de la tienda. */
+/* Carrusel de gorros de la tienda. Los nombres de archivo están en datos/productos.js. */
 
-const gorros = [
-    "gorros-natacion.jpg",
-    "gorros-natacion2.jpg"
-];
+const productoGorros = productosTienda.find(producto => producto.carrusel);
+const gorros = productoGorros ? productoGorros.imagenes : [];
 
 let gorroActual = 0;
 
 function cambiarGorro(direccion) {
+    if (gorros.length === 0) return;
 
     gorroActual += direccion;
 
@@ -19,6 +18,10 @@ function cambiarGorro(direccion) {
         gorroActual = 0;
     }
 
-    document.getElementById("imagenGorro").src =
-        "imagenes/productos/" + gorros[gorroActual];
+    const imagen = document.getElementById("imagenGorro");
+
+    if (imagen) {
+        imagen.src = "imagenes/productos/" + gorros[gorroActual];
+        imagen.alt = `Gorro de natación, diseño ${gorroActual + 1}`;
+    }
 }
