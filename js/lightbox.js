@@ -78,31 +78,10 @@ function abrirProducto(index) {
     productoActual = index;
     imagenProductoActual = 0;
 
-    const productos = [
-        {
-            nombre: "Abanicos",
-            imagenes: ["abanicos.webp"]
-        },
-        {
-            nombre: "Bañador",
-            imagenes: ["bañador.jpg"]
-        },
-        {
-            nombre: "Equipación",
-            imagenes: ["equipacion.jpg"]
-        },
-        {
-            nombre: "Gorros de natación",
-            imagenes: ["gorros-natacion.jpg", "gorros-natacion2.jpg"]
-        },
-        {
-            nombre: "Mochila",
-            imagenes: ["mochila.jpg"]
-        }
-    ];
+    const producto = productosTienda[productoActual];
 
-    listaProductos = productos[productoActual].imagenes;
-    nombreProductoActual = productos[productoActual].nombre;
+    listaProductos = producto.imagenes;
+    nombreProductoActual = producto.nombre;
 
     const lightbox = document.getElementById("lightbox");
     const imagen = document.getElementById("imagenGrande");
