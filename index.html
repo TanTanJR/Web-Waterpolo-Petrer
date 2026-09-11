@@ -35,9 +35,13 @@
 
 
     <!-- MENÚ MÓVIL -->
-    <div class="menu-movil" onclick="toggleMenu()">
-        ☰ Menú
-    </div>
+    <button type="button"
+            class="menu-movil"
+            aria-controls="menu-tarjetas"
+            aria-expanded="true"
+            onclick="toggleMenu(this)">
+        ☰ Ocultar menú
+    </button>
 
 
     <!-- CONTENIDO PRINCIPAL -->
@@ -107,7 +111,7 @@
 
 
             <!-- TARJETAS -->
-            <div class="contenedor">
+            <div class="contenedor" id="menu-tarjetas">
 
                 <button class="card rojo" onclick="mostrarSeccion('horarios')">
                      <span class="card-icon">🕒</span>
