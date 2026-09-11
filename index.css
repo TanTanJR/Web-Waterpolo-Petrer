@@ -30,8 +30,8 @@ body{
 }
 
 .hero{ /* esta es la sección hero es la portada de la web */
-    width: 92%;
-    max-width: 1250px;
+    width: calc(100% - 48px);
+    max-width: 1466px;
     height: 500px;
     margin: 35px auto 30px;
     border-radius: 25px;
@@ -701,16 +701,21 @@ h1{
 
                         /* Sección de las barras laterales (sponsors y redes sociales) */
 
-.layout-principal{ /* organiza patrocinadores, contenido y redes en tres columnas estables */
+.layout-principal{ /* organiza patrocinadores, contenido y redes dentro de un mismo marco */
     display: grid;
-    grid-template-columns: 150px minmax(0, 1100px) 120px;
+    grid-template-columns: 150px minmax(0, 1100px) 150px;
     justify-content: center;
     align-items: start;
     gap: 32px;
     width: calc(100% - 48px);
     max-width: 1466px;
     margin: 40px auto;
+    padding: 24px;
     box-sizing: border-box;
+    background: rgba(255,255,255,0.42);
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 26px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.10);
 }
 
 .zona-central{
@@ -733,6 +738,16 @@ h1{
 .sidebar.derecha{
     justify-self: end;
 }
+
+.sidebar-titulo{
+    margin: 0 0 16px;
+    min-height: 24px;
+    color: #333;
+    font-size: 17px;
+    line-height: 1.4;
+    text-align: center;
+}
+
 .sponsor{
     height: 120px;
     padding: 10px;
@@ -783,8 +798,7 @@ h1{
 }
 
 .redes{
-    
-    top: 180px;
+    top: 100px;
 
     display: flex;
     flex-direction: column;
@@ -1332,7 +1346,7 @@ footer{
 
 @media (max-width: 1400px) { /* compacta las columnas laterales sin desplazar el contenido */
     .layout-principal {
-        grid-template-columns: 125px minmax(0, 1fr) 80px;
+        grid-template-columns: 125px minmax(0, 1fr) 125px;
         gap: 24px;
     }
 
