@@ -730,9 +730,16 @@ h1{
 }
 
 .sidebar.izquierda{
-    height: min(700px, calc(100vh - 140px)); /* zona visible del carrusel */
-    min-height: 500px;
+    /* El título permanece fuera de la zona que recorta la animación */
+    height: auto;
+}
+
+.sponsors-viewport{
+    height: min(780px, calc(100vh - 170px)); /* carrusel más largo */
+    min-height: 560px;
+    padding-top: 10px; /* separa los logotipos del título */
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .sidebar.derecha{
