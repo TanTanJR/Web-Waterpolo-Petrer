@@ -908,10 +908,93 @@ h1{
 }
 
 footer{
-     margin-top: 60px;
-    padding: 30px;
+    margin-top: 60px;
+    padding: 36px 24px 20px;
     background: #1f1f1f;
     color: white;
+}
+
+.footer-contenido{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    width: min(100%, 1100px);
+    margin: 0 auto;
+}
+
+.footer-club{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+}
+
+.footer-club img{
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+}
+
+.footer-club h2{
+    margin: 0 0 7px;
+    font-size: 21px;
+}
+
+.footer-club p,
+.footer-copyright{
+    margin: 0;
+    color: #ddd;
+}
+
+.footer-enlaces{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 12px 20px;
+}
+
+.footer-enlaces a{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.footer-enlaces a:hover{
+    color: #ff5a5a;
+    text-decoration: underline;
+}
+
+.footer-copyright{
+    padding-top: 24px;
+    margin-top: 28px;
+    border-top: 1px solid #444;
+    text-align: center;
+    font-size: 14px;
+}
+
+.sin-partidos{
+    padding: 35px 24px;
+    border: 2px dashed #ddd;
+    border-radius: 18px;
+    background: #fafafa;
+    text-align: center;
+}
+
+.sin-partidos span{
+    display: block;
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+
+.sin-partidos h3{
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.sin-partidos p{
+    margin: 0;
+    color: #666;
 }
 
 /* =========================
@@ -1464,6 +1547,20 @@ footer{
 
     .producto img{
         height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-contenido,
+    .footer-club,
+    .footer-enlaces {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-enlaces {
+        align-items: center;
     }
 }
 
