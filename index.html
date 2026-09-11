@@ -5,12 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Club Waterpolo Petrer</title>
+    <title>Club Waterpolo Petrer | Horarios, equipos y partidos</title>
+
+    <!-- SEO básico para buscadores -->
+    <meta name="description"
+          content="Web del Club Waterpolo Petrer con información sobre equipos, horarios, partidos, galería, material oficial y contacto.">
+    <meta name="author" content="Club Waterpolo Petrer">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#ff3232">
+
+    <!-- Icono mostrado en la pestaña del navegador -->
+    <link rel="icon" type="image/png" href="imagenes/logo.sin.png">
+
+    <!-- Información mostrada al compartir la web -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Club Waterpolo Petrer">
+    <meta property="og:title" content="Club Waterpolo Petrer">
+    <meta property="og:description"
+          content="Formación, competición y pasión por el waterpolo en Petrer. Consulta equipos, horarios y partidos.">
+
+    <!-- Vista previa para Twitter/X -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Club Waterpolo Petrer">
+    <meta name="twitter:description"
+          content="Formación, competición y pasión por el waterpolo en Petrer.">
 
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
+
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 
     <!-- HEADER -->
     <header class="header">
@@ -35,63 +61,71 @@
 
 
     <!-- MENÚ MÓVIL -->
-    <div class="menu-movil" onclick="toggleMenu()">
-        ☰ Menú
-    </div>
+    <button type="button"
+            class="menu-movil"
+            aria-controls="menu-tarjetas"
+            aria-expanded="true"
+            onclick="toggleMenu(this)">
+        ☰ Ocultar menú
+    </button>
 
 
     <!-- CONTENIDO PRINCIPAL -->
-    <main class="layout-principal">
+    <main class="layout-principal" id="contenido-principal">
 
         <!-- PATROCINADORES -->
-        <aside class="sidebar izquierda">
+        <aside class="sidebar izquierda" aria-label="Patrocinadores">
 
-            <div class="sponsors-track">
+            <h2 class="sidebar-titulo">Patrocinadores</h2>
+
+            <div class="sponsors-viewport">
+                <div class="sponsors-track">
 
                 <!-- Patrocinadores -->
                 <div class="sponsor">
-                    <img src="imagenes/sponsors/alvarez.jpg" alt="Álvarez">
+                    <img src="imagenes/sponsors/alvarez.jpg" alt="Álvarez" loading="lazy" decoding="async">
                 </div>
 
                 <div class="sponsor">
-                    <img src="imagenes/sponsors/xocolate.png" alt="Xocolate">
+                    <img src="imagenes/sponsors/xocolate.png" alt="Xocolate" loading="lazy" decoding="async">
                 </div>
 
                 <div class="sponsor">
-                    <img src="imagenes/sponsors/lacasadelperol.jpg" alt="La Casa del Perol">
+                    <img src="imagenes/sponsors/lacasadelperol.jpg" alt="La Casa del Perol" loading="lazy" decoding="async">
                 </div>
 
                 <div class="sponsor">
-                    <img src="imagenes/sponsors/clinicamartin.png" alt="Clínica Martín">
+                    <img src="imagenes/sponsors/clinicamartin.png" alt="Clínica Martín" loading="lazy" decoding="async">
                 </div>
 
                 <div class="sponsor">
-                    <img src="imagenes/sponsors/luisjuan.jpg" alt="Luis Juan">
+                    <img src="imagenes/sponsors/luisjuan.jpg" alt="Luis Juan" loading="lazy" decoding="async">
                 </div>
 
 
                 <!-- Repetidos para el carrusel infinito -->
 
                 <div class="sponsor">
-                    <img src="imagenes/sponsors/alvarez.jpg" alt="Álvarez">
+                    <img src="imagenes/sponsors/alvarez.jpg" alt="Álvarez" loading="lazy" decoding="async">
                 </div>
 
                 <div class="sponsor">
-                    <img src="imagenes/sponsors/xocolate.png" alt="Xocolate">
+                    <img src="imagenes/sponsors/xocolate.png" alt="Xocolate" loading="lazy" decoding="async">
                 </div>
 
                 <div class="sponsor">
-                    <img src="imagenes/sponsors/lacasadelperol.jpg" alt="La Casa del Perol">
+                    <img src="imagenes/sponsors/lacasadelperol.jpg" alt="La Casa del Perol" loading="lazy" decoding="async">
                 </div>
 
                 <div class="sponsor">
-                    <img src="imagenes/sponsors/clinicamartin.png" alt="Clínica Martín">
+                    <img src="imagenes/sponsors/clinicamartin.png" alt="Clínica Martín" loading="lazy" decoding="async">
                 </div>
 
                 <div class="sponsor">
-                    <img src="imagenes/sponsors/luisjuan.jpg" alt="Luis Juan">
+                    <img src="imagenes/sponsors/luisjuan.jpg" alt="Luis Juan" loading="lazy" decoding="async">
                 </div>
 
+                </div>
             </div>
 
         </aside>
@@ -107,7 +141,7 @@
 
 
             <!-- TARJETAS -->
-            <div class="contenedor">
+            <div class="contenedor" id="menu-tarjetas">
 
                 <button class="card rojo" onclick="mostrarSeccion('horarios')">
                      <span class="card-icon">🕒</span>
@@ -174,14 +208,16 @@
 
 
         <!-- REDES SOCIALES -->
-        <aside class="sidebar derecha redes">
+        <aside class="sidebar derecha redes" aria-label="Redes sociales">
+
+            <h2 class="sidebar-titulo">Síguenos</h2>
 
             <a href="https://www.instagram.com/waterpolopetrer/"
                target="_blank"
                rel="noopener noreferrer"
                class="social-link">
 
-                <img src="imagenes/sidebar/instagram.jpg" alt="Instagram">
+                <img src="imagenes/sidebar/instagram.jpg" alt="Instagram" loading="lazy" decoding="async">
             </a>
 
 
@@ -190,7 +226,7 @@
                rel="noopener noreferrer"
                class="social-link">
 
-                <img src="imagenes/sidebar/facebook.png" alt="Facebook">
+                <img src="imagenes/sidebar/facebook.png" alt="Facebook" loading="lazy" decoding="async">
             </a>
 
         </aside>
@@ -199,33 +235,61 @@
 
 
     <!-- LIGHTBOX GALERÍA -->
-    <div id="lightbox">
+    <div id="lightbox"
+         role="dialog"
+         aria-modal="true"
+         aria-label="Visor de imágenes"
+         aria-hidden="true">
 
-        <span class="cerrar" onclick="cerrarImagen()">✖</span>
+        <button type="button" class="cerrar" onclick="cerrarImagen()" aria-label="Cerrar visor">✖</button>
 
-        <span class="flecha izquierda" onclick="cambiarImagen(-1)">
+        <button type="button" class="flecha izquierda" onclick="cambiarImagen(-1)" aria-label="Imagen anterior">
             ❮
-        </span>
+        </button>
 
         <img id="imagenGrande" alt="Imagen de la galería">
 
-        <span class="flecha derecha" onclick="cambiarImagen(1)">
+        <button type="button" class="flecha derecha" onclick="cambiarImagen(1)" aria-label="Imagen siguiente">
             ❯
-        </span>
+        </button>
 
-        <span id="contador"></span>
+        <span id="contador" role="status" aria-live="polite"></span>
 
     </div>
 
 
     <!-- FOOTER -->
     <footer>
-        <p>© 2026 Club Waterpolo Petrer</p>
-        <p>Piscina Cubierta San Fernando · Petrer</p>
+        <div class="footer-contenido">
+            <div class="footer-club">
+                <img src="imagenes/logo.sin.png" alt="" aria-hidden="true">
+                <div>
+                    <h2>Club Waterpolo Petrer</h2>
+                    <p>Piscina Cubierta San Fernando · Petrer</p>
+                </div>
+            </div>
+
+            <nav class="footer-enlaces" aria-label="Enlaces del pie de página">
+                <a href="#contenido" onclick="mostrarSeccion('contacto')">Contacto</a>
+                <a href="mailto:waterpolopetrer@hotmail.com">Correo electrónico</a>
+                <a href="https://www.instagram.com/waterpolopetrer/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.facebook.com/CWPetrer" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a href="#contenido-principal">Volver arriba ↑</a>
+            </nav>
+        </div>
+
+        <p class="footer-copyright">© 2026 Club Waterpolo Petrer</p>
     </footer>
 
 
-    <script src="index.js"></script>
+    <script src="datos/horarios.js"></script>
+    <script src="datos/productos.js"></script>
+    <script src="datos/partidos.js"></script>
+    <script src="js/calendario.js"></script>
+    <script src="js/lightbox.js"></script>
+    <script src="js/tienda.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/secciones.js"></script>
 
 </body>
 
