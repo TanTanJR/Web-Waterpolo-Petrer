@@ -460,6 +460,14 @@ h1{
    
 }
 
+.galeria-boton,
+.miniatura-boton {
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
 .galeria img{ /* esta clase se le asigna a cada foto de la galería para que tengan un estilo uniforme */
     width: 200px;
     height: 150px;
@@ -500,6 +508,8 @@ h1{
     top: 20px;
     right: 30px;
     font-size: 30px;
+    border: none;
+    background: transparent;
     color: white;
     cursor: pointer;
     font-size: 25px;
@@ -510,9 +520,11 @@ h1{
     top: 50%;
     transform: translateY(-50%);
     font-size: 40px;
+    padding: 10px;
+    border: none;
+    background: transparent;
     color: white;
     cursor: pointer;
-    padding: 10px;
     font-size: 25px;
 }
 
@@ -1390,5 +1402,46 @@ footer{
         padding: 6px 0;
         border-radius: 6px;
         font-size: 11px;
+    }
+}
+
+/* Accesibilidad */
+.skip-link {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 10000;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: #1f1f1f;
+    color: white;
+    text-decoration: none;
+    transform: translateY(-150%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+button:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid #111;
+    outline-offset: 4px;
+}
+
+#lightbox button:focus-visible,
+#lightbox .miniatura-boton:focus-visible {
+    outline-color: white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
