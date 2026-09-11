@@ -1340,21 +1340,31 @@ footer{
     }
 
     .partido-item {
-        gap: 12px;
-        padding: 14px;
-        }
+        gap: 8px;
+        padding: 14px 10px;
+    }
 
     .partido-hora {
-        min-width: 55px;
+        min-width: 48px;
         font-size: 17px;
+        text-align: left;
+    }
+
+    .partido-info {
+        min-width: 0;
+        align-items: flex-start;
+        text-align: left;
     }
 
     .partido-info strong {
         font-size: 15px;
+        line-height: 1.35;
+        text-align: left;
     }
 
     .partido-categoria {
         font-size: 12px;
+        text-align: left;
     }
 }
 
