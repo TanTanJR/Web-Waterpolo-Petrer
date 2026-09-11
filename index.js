@@ -251,9 +251,11 @@ function mostrarSeccion(seccion){
 
                     <p>¿Tienes alguna pregunta? Escríbenos y te responderemos lo antes posible.</p>
 
-                    <button type="button" class="btn-email btn-email-pendiente" disabled>
-                        Correo disponible próximamente
-                    </button>
+                    <a href="mailto:waterpolopetrer@hotmail.com?subject=Informaci%C3%B3n%20para%20unirse%20al%20club&body=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20para%20formar%20parte%20del%20Club%20Waterpolo%20Petrer."
+                       class="btn-email"
+                       aria-label="Enviar un correo a Waterpolo Petrer">
+                        Escríbenos
+                    </a>
                 </div>
 
                 <div class="contacto-item">
