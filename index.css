@@ -615,8 +615,10 @@ h1{
 }
 
 .dia-calendario{ /* esta clase se le asigna a cada día del calendario para que tenga un estilo uniforme */
-    background: white;
     padding: 20px;
+    border: none;
+    background: white;
+    font: inherit;
     border-radius: 12px;
     cursor: pointer;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
@@ -639,10 +641,13 @@ h1{
 }
 
 .producto{
-    background: white;
+    width: 100%;
     padding: 20px;
-    border-radius: 15px;
+    border: none;
     border-left: 6px solid #ff3232;
+    background: white;
+    font: inherit;
+    border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
     text-align: center;
     cursor: pointer;
