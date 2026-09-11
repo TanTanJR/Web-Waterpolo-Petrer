@@ -124,7 +124,18 @@ function mostrarSeccion(seccion){
         listaImagenes = ["foto1.jpg", "foto2.jpg","foto3.jpg", "foto4.jpg", "foto5.jpg"];
 
         listaImagenes.forEach((img, index) => {
-            html += `<img src="imagenes/galeria/${img}" onclick="abrirImagen(${index})">`;
+            const numero = index + 1;
+
+            html += `
+                <button type="button"
+                        class="galeria-boton"
+                        onclick="abrirImagen(${index})"
+                        aria-label="Abrir foto ${numero} de ${listaImagenes.length}">
+                    <img src="imagenes/galeria/${img}"
+                         alt="Foto ${numero} del Club Waterpolo Petrer"
+                         loading="lazy">
+                </button>
+            `;
         });
 
         html += "</div>";
@@ -307,9 +318,9 @@ function mostrarSeccion(seccion){
             <h2 class="seccion-titulo">📅 Calendario de Partidos</h2>
 
             <div class="calendario-header">
-                <button onclick="cambiarMes(-1)">🢀</button>
+                <button type="button" onclick="cambiarMes(-1)" aria-label="Mes anterior">🢀</button>
                 <h3 id="mesActual"></h3>
-                <button onclick="cambiarMes(1)">🢂</button>
+                <button type="button" onclick="cambiarMes(1)" aria-label="Mes siguiente">🢂</button>
             </div>
 
             <div id="calendario" class="calendario-grid"></div>
@@ -331,23 +342,23 @@ if (seccion === "compras") {
 
             <div class="tienda">
 
-                <div class="producto" onclick="abrirProducto(0)">
+                <button type="button" class="producto" onclick="abrirProducto(0)">
                     <img src="imagenes/productos/abanicos.jpg" alt="Abanicos del club">
                     <h3>Abanicos</h3>
                     <p>Material oficial del club</p>
-                </div>
+                </button>
 
-                <div class="producto" onclick="abrirProducto(1)">
+                <button type="button" class="producto" onclick="abrirProducto(1)">
                     <img src="imagenes/productos/bañador.jpg" alt="Bañador del club">
                     <h3>Bañador</h3>
                     <p>Material oficial del club</p>
-                </div>
+                </button>
 
-                <div class="producto" onclick="abrirProducto(2)">
+                <button type="button" class="producto" onclick="abrirProducto(2)">
                     <img src="imagenes/productos/equipacion.jpg" alt="Equipación del club">
                     <h3>Equipación</h3>
                     <p>Equipación oficial</p>
-                </div>
+                </button>
 
                 <div class="producto gorros">
 
@@ -366,11 +377,11 @@ if (seccion === "compras") {
                     <h3>Gorros de natación</h3>
 
                 </div>
-                <div class="producto" onclick="abrirProducto(4)">
+                <button type="button" class="producto" onclick="abrirProducto(4)">
                     <img src="imagenes/productos/mochila.jpg" alt="Mochila del club">
                     <h3>Mochila</h3>
                     <p>Material oficial del club</p>
-                </div>
+                </button>
 
             </div>
 
