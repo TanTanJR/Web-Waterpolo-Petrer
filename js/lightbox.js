@@ -6,10 +6,19 @@ let productoActual = 0;
 let imagenProductoActual = 0;
 let listaProductos = [];
 let tipoLightbox = "galeria";
+let nombreProductoActual = "";
+let elementoConFocoAntesDelLightbox = null;
 
-function cerrarImagen(){ // Esta función cierra el lightbox de la galería, ocultando el contenedor del lightbox y deteniendo la visualización de la imagen grande */
-    document.getElementById("lightbox").style.display = "none";
-      
+function cerrarImagen(){ // Cierra el visor y devuelve el foco al elemento que lo abrió
+    const lightbox = document.getElementById("lightbox");
+
+    lightbox.style.display = "none";
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+
+    if (elementoConFocoAntesDelLightbox) {
+        elementoConFocoAntesDelLightbox.focus();
+    }
 }
 
 function actualizarContador(){// Esta función actualiza el contador que muestra la posición de la imagen actual en la galería, mostrando el número de imagen actual y el total de imágenes disponibles */
@@ -17,7 +26,8 @@ function actualizarContador(){// Esta función actualiza el contador que muestra
         (imagenActual + 1) + " / " + listaImagenes.length;
 }
 
-function abrirImagen(index){ // Esta función abre la imagen seleccionada en el lightbox, mostrando la imagen grande y generando las miniaturas de navegación, además de actualizar el contador de imágenes */
+function abrirImagen(index){ // Abre una fotografía de la galería en el visor
+    elementoConFocoAntesDelLightbox = document.activeElement;
     tipoLightbox = "galeria";
     imagenActual = index;
 
@@ -25,7 +35,10 @@ function abrirImagen(index){ // Esta función abre la imagen seleccionada en el 
     const imagen = document.getElementById("imagenGrande");
 
     imagen.src = "imagenes/galeria/" + listaImagenes[imagenActual];
+    imagen.alt = `Foto ${imagenActual + 1} del Club Waterpolo Petrer ampliada`;
     lightbox.style.display = "flex";
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
 
     document.querySelectorAll("#lightbox .flecha").forEach(flecha => {
         flecha.style.display = "block";
@@ -34,11 +47,17 @@ function abrirImagen(index){ // Esta función abre la imagen seleccionada en el 
     let miniaturas = "<div class='miniaturas'>";
 
     listaImagenes.forEach((img, i) => {
-        miniaturas += `<img 
-            src="imagenes/galeria/${img}" 
-            onclick="abrirImagen(${i})"
-            class="${i === imagenActual ? 'activa' : ''}"
-        >`;
+        miniaturas += `
+            <button type="button"
+                    class="miniatura-boton"
+                    onclick="abrirImagen(${i})"
+                    aria-label="Mostrar foto ${i + 1} de ${listaImagenes.length}">
+                <img src="imagenes/galeria/${img}"
+                     alt=""
+                     aria-hidden="true"
+                     class="${i === imagenActual ? 'activa' : ''}">
+            </button>
+        `;
     });
 
     miniaturas += "</div>";
@@ -46,13 +65,15 @@ function abrirImagen(index){ // Esta función abre la imagen seleccionada en el 
     const old = document.querySelector(".miniaturas");
     if (old) old.remove();
 
-    lightbox.innerHTML += miniaturas;
+    lightbox.insertAdjacentHTML("beforeend", miniaturas);
 
     actualizarContador();
+    lightbox.querySelector(".cerrar").focus();
 }
 
 function abrirProducto(index) {
 
+    elementoConFocoAntesDelLightbox = document.activeElement;
     tipoLightbox = "producto";
     productoActual = index;
     imagenProductoActual = 0;
@@ -81,13 +102,17 @@ function abrirProducto(index) {
     ];
 
     listaProductos = productos[productoActual].imagenes;
+    nombreProductoActual = productos[productoActual].nombre;
 
     const lightbox = document.getElementById("lightbox");
     const imagen = document.getElementById("imagenGrande");
 
     imagen.src = "imagenes/productos/" + listaProductos[0];
+    imagen.alt = nombreProductoActual + " ampliado";
 
     lightbox.style.display = "flex";
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
 
     const miniaturas = lightbox.querySelector(".miniaturas");
     if (miniaturas) miniaturas.remove();
@@ -97,6 +122,7 @@ function abrirProducto(index) {
     });
 
     actualizarContadorProducto();
+    lightbox.querySelector(".cerrar").focus();
 }
 
 function cambiarImagenProducto(direccion) {
@@ -114,6 +140,7 @@ function cambiarImagenProducto(direccion) {
     const imagen = document.getElementById("imagenGrande");
 
     imagen.src = "imagenes/productos/" + listaProductos[imagenProductoActual];
+    imagen.alt = `${nombreProductoActual}, imagen ${imagenProductoActual + 1}`;
 
     actualizarContadorProducto();
 }
@@ -160,6 +187,7 @@ function cambiarImagen(direccion){ // Esta función cambia la imagen mostrada en
         }
 
         img.src = "imagenes/galeria/" + listaImagenes[imagenActual];
+        img.alt = `Foto ${imagenActual + 1} del Club Waterpolo Petrer ampliada`;
         img.style.opacity = 1;
 
         actualizarContador();
@@ -172,10 +200,17 @@ document.addEventListener("keydown", function(e){ // Este evento escucha las tec
 
     const lightbox = document.getElementById("lightbox");
 
-    if (lightbox.style.display === "flex") {
+    if (lightbox.getAttribute("aria-hidden") === "false") {
 
         if (e.key === "ArrowRight") cambiarImagen(1);
         if (e.key === "ArrowLeft") cambiarImagen(-1);
         if (e.key === "Escape") cerrarImagen();
+    }
+});
+
+// Cierra el visor al pulsar fuera de la imagen.
+document.getElementById("lightbox").addEventListener("click", function(evento) {
+    if (evento.target === this) {
+        cerrarImagen();
     }
 });
