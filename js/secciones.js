@@ -1,97 +1,75 @@
 /* Renderiza el contenido de las tarjetas principales. */
 
+function crearHorariosHTML() {
+    return horariosEntrenamiento.map(horario => {
+        const sesiones = horario.sesiones.map(sesion => `
+            <div class="horario-grupo">
+                <span class="categoria">${sesion.grupo}</span>
+                <span class="hora">${sesion.hora}</span>
+            </div>
+        `).join("");
+
+        return `
+            <div class="dia">
+                <h3>${horario.dia}</h3>
+                ${sesiones}
+            </div>
+        `;
+    }).join("");
+}
+
+function crearTiendaHTML() {
+    return productosTienda.map((producto, indice) => {
+        if (producto.carrusel) {
+            return `
+                <div class="producto gorros">
+                    <button type="button"
+                            class="flecha-gorro izquierda"
+                            onclick="cambiarGorro(-1)"
+                            aria-label="Gorro anterior">❮</button>
+
+                    <img id="imagenGorro"
+                         src="imagenes/productos/${producto.imagenes[0]}"
+                         alt="${producto.alt}"
+                         loading="lazy"
+                         decoding="async">
+
+                    <button type="button"
+                            class="flecha-gorro derecha"
+                            onclick="cambiarGorro(1)"
+                            aria-label="Gorro siguiente">❯</button>
+
+                    <h3>${producto.nombre}</h3>
+                </div>
+            `;
+        }
+
+        return `
+            <button type="button" class="producto" onclick="abrirProducto(${indice})">
+                <img src="imagenes/productos/${producto.imagenes[0]}"
+                     alt="${producto.alt}"
+                     loading="lazy"
+                     decoding="async">
+                <h3>${producto.nombre}</h3>
+                <p>${producto.descripcion}</p>
+            </button>
+        `;
+    }).join("");
+}
+
 function mostrarSeccion(seccion){
     const contenido = document.getElementById("contenido"); // Aquí se muestra el contenido de cada sección según el botón pulsado */
     
     if(seccion === "horarios"){
-    contenido.innerHTML = `
-    <div class="seccion-box">
-        <h2 class="seccion-titulo">🕒 Horarios de entrenamiento</h2>
-
-        <div class="dias">
-
-            <div class="dia">
-                <h3>Lunes</h3>
-
-                <div class="horario-grupo">
-                    <span class="categoria">Alevín / Infantil</span>
-                    <span class="hora">19:30 - 21:00</span>
-                </div>
-
-                <div class="horario-grupo">
-                    <span class="categoria">Juvenil / Absoluto Masculino / Absoluto Femenino</span>
-                    <span class="hora">21:30 - 23:30</span>
+        contenido.innerHTML = `
+            <div class="seccion-box">
+                <h2 class="seccion-titulo">🕒 Horarios de entrenamiento</h2>
+                <div class="dias">
+                    ${crearHorariosHTML()}
                 </div>
             </div>
-
-
-            <div class="dia">
-                <h3>Martes</h3>
-
-                <div class="horario-grupo">
-                    <span class="categoria">Pre-Benjamín / Benjamín / Alevín </span>
-                    <span class="hora">19:00 - 20:00</span>
-                </div>
-
-                <div class="horario-grupo">
-                    <span class="categoria">Alevín / Infantil</span>
-                    <span class="hora">20:00 - 21:30</span>
-                </div>
-            </div>
-
-
-            <div class="dia">
-                <h3>Miércoles</h3>
-
-                <div class="horario-grupo">
-                    <span class="categoria">Alevín / Infantil</span>
-                    <span class="hora">19:00 - 20:30</span>
-                </div>
-
-                <div class="horario-grupo">
-                    <span class="categoria">Juvenil / Absoluto Masculino / Absoluto Femenino</span>
-                    <span class="hora">21:30 - 23:30</span>
-                </div>
-            </div>
-
-
-            <div class="dia">
-                <h3>Jueves</h3>
-
-                <div class="horario-grupo">
-                    <span class="categoria">Pre-Benjamín / Benjamín</span>
-                    <span class="hora">19:00 - 20:00</span>
-                </div>
-
-                <div class="horario-grupo">
-                    <span class="categoria">Alevín / Infantil</span>
-                    <span class="hora">19:00 - 20:30</span>
-                </div>
-
-                <div class="horario-grupo">
-                    <span class="categoria">Juvenil / Absoluto Masculino / Absoluto Femenino</span>
-                    <span class="hora">21:30 - 23:30</span>
-                </div>
-            </div>
-
-
-            <div class="dia">
-                <h3>Viernes</h3>
-
-                <div class="horario-grupo">
-                    <span class="categoria">Pre-Benjamín / Benjamín / Alevín / Infantil</span>
-                    <span class="hora">19:30 - 21:00</span>
-                </div>
-
-                <div class="horario-grupo">
-                    <span class="categoria">Juvenil / Absoluto Masculino / Absoluto Femenino</span>
-                    <span class="hora">20:30 - 22:30</span>
-                </div>
-            </div>
-
-        </div>
-    </div>`;
-}
+        `;
+    }
 
 
     if (seccion === "equipos") { // Aquí se muestra el contenido de la sección de equipos, con una lista de los diferentes equipos del club */
@@ -172,7 +150,7 @@ function mostrarSeccion(seccion){
             <div class="sin-partidos">
                 <span>🏊</span>
                 <h3>No hay próximos partidos</h3>
-                <p>En estos momentos no hay partidos programados.</p>
+                <p>Actualmente no hay próximos partidos programados. Publicaremos las nuevas fechas próximamente.</p>
             </div>
         `;
 
@@ -335,59 +313,12 @@ function mostrarSeccion(seccion){
 }
 
 if (seccion === "compras") {
-
     contenido.innerHTML = `
         <div class="seccion-box">
-
             <h2 class="seccion-titulo">🛍️ Material oficial del club</h2>
-
             <div class="tienda">
-
-                <button type="button" class="producto" onclick="abrirProducto(0)">
-                    <img src="imagenes/productos/abanicos.webp" alt="Abanicos del club" loading="lazy" decoding="async">
-                    <h3>Abanicos</h3>
-                    <p>Material oficial del club</p>
-                </button>
-
-                <button type="button" class="producto" onclick="abrirProducto(1)">
-                    <img src="imagenes/productos/bañador.jpg" alt="Bañador del club" loading="lazy" decoding="async">
-                    <h3>Bañador</h3>
-                    <p>Material oficial del club</p>
-                </button>
-
-                <button type="button" class="producto" onclick="abrirProducto(2)">
-                    <img src="imagenes/productos/equipacion.jpg" alt="Equipación del club" loading="lazy" decoding="async">
-                    <h3>Equipación</h3>
-                    <p>Equipación oficial</p>
-                </button>
-
-                <div class="producto gorros">
-
-                    <button type="button" class="flecha-gorro izquierda" onclick="cambiarGorro(-1)" aria-label="Gorro anterior">
-                        ❮
-                    </button>
-
-                    <img id="imagenGorro"
-                        src="imagenes/productos/gorros-natacion.jpg"
-                        alt="Gorro de natación"
-                        loading="lazy"
-                        decoding="async">
-
-                    <button type="button" class="flecha-gorro derecha" onclick="cambiarGorro(1)" aria-label="Gorro siguiente">
-                        ❯
-                    </button>
-
-                    <h3>Gorros de natación</h3>
-
-                </div>
-                <button type="button" class="producto" onclick="abrirProducto(4)">
-                    <img src="imagenes/productos/mochila.jpg" alt="Mochila del club" loading="lazy" decoding="async">
-                    <h3>Mochila</h3>
-                    <p>Material oficial del club</p>
-                </button>
-
+                ${crearTiendaHTML()}
             </div>
-
         </div>
     `;
 }
