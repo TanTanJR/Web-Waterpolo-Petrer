@@ -17,8 +17,19 @@ html, body {
 }
 
 .logo{
-    
-    width: 60px;
+    width: 90px;
+    aspect-ratio: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    object-fit: contain;
+    background: rgba(255,255,255,0.95);
+    border: 2px solid rgba(255,50,50,0.28);
+    border-radius: 50%;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+
+.header h1{
+    margin: 20px 0;
 }
 
 body{
