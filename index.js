@@ -245,16 +245,15 @@ function mostrarSeccion(seccion){
 
                 <div class="contacto-item">
                     <h3>
-                        <img src="imagenes/contacto/gmail.jpg" class="icono-contacto">
+                        <img src="imagenes/contacto/gmail.jpg" class="icono-contacto" alt="" aria-hidden="true">
                         Email
                     </h3>
 
                     <p>¿Tienes alguna pregunta? Escríbenos y te responderemos lo antes posible.</p>
 
-                    <a href="mailto:club@waterpolo.com?subject=Información para unirse al club&body=Hola, me gustaría recibir información para formar parte del Club Waterpolo Petrer."
-                    class="btn-email">
-                        Escríbenos
-                    </a>
+                    <button type="button" class="btn-email btn-email-pendiente" disabled>
+                        Correo disponible próximamente
+                    </button>
                 </div>
 
                 <div class="contacto-item">
@@ -262,11 +261,11 @@ function mostrarSeccion(seccion){
                     <p>Ponte en contacto directamente con nosotros:</p>
 
                     <div class="telefonos">
-                        <a href="tel:+34625141778" class="btn-telefono">
+                        <a href="tel:+34625141778" class="btn-telefono" aria-label="Llamar al 625 141 778">
                             📞 625 141 778
                         </a>
 
-                        <a href="tel:+34667455600" class="btn-telefono">
+                        <a href="tel:+34667455600" class="btn-telefono" aria-label="Llamar al 667 455 600">
                             📞 667 455 600
                         </a>
                     </div>
@@ -274,7 +273,7 @@ function mostrarSeccion(seccion){
 
                <div class="contacto-item">
                     <h3>
-                        <img src="imagenes/sidebar/instagram.jpg" class="icono-contacto">
+                        <img src="imagenes/sidebar/instagram.jpg" class="icono-contacto" alt="" aria-hidden="true">
                         Redes Sociales
                     </h3>
 
@@ -282,8 +281,9 @@ function mostrarSeccion(seccion){
 
                     <a href="https://www.instagram.com/waterpolopetrer/"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="btn-instagram">
-                       <img src="imagenes/contacto/instagram-rojo.jpg" class="icono-contacto"> 
+                       <img src="imagenes/contacto/instagram-rojo.jpg" class="icono-contacto" alt="" aria-hidden="true"> 
                        Instagram
                     </a>
                 </div>
