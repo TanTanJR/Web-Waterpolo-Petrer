@@ -446,31 +446,54 @@ function cambiarMes(direccion) { // Esta función cambia el mes que se muestra e
     fechaVista.setMonth(fechaVista.getMonth() + direccion);
     generarCalendario();
 }
-function mostrarDetalle(fecha) { // Esta función muestra los detalles de los partidos programados para la fecha seleccionada, buscando en el array de partidos y mostrando la información en un formato legible */
+function mostrarDetalle(fecha) { // Muestra los partidos del día con el mismo diseño que Próximos Partidos
     const detalle = document.getElementById("detallePartido");
-
-    const jornadas = partidosCalendario.filter(p => p.fecha === fecha);
+    const jornadas = partidosCalendario.filter(jornada => jornada.fecha === fecha);
 
     if (jornadas.length === 0) {
         detalle.innerHTML = `<p>No hay partidos este día.</p>`;
         return;
     }
 
-    let html = `<h3>🏊 Jornada del ${fecha}</h3>`;
+    const fechaObjeto = new Date(fecha + "T00:00:00");
+    const fechaTexto = fechaObjeto.toLocaleDateString("es-ES", {
+        weekday: "long",
+        day: "numeric",
+        month: "long"
+    });
+
+    let html = `<div class="lista-partidos">`;
 
     jornadas.forEach(jornada => {
         html += `
-            <div class="partido-card">
-                <p><b>📍 Ubicación:</b> ${jornada.ubicacion}</p>
-                <hr>
+            <div class="jornada-partidos">
+                <div class="fecha-partido">
+                    📅 ${fechaTexto}
+                </div>
+
+                <div class="ubicacion-partido">
+                    📍 ${jornada.ubicacion}
+                </div>
         `;
 
         jornada.partidos.forEach(partido => {
             html += `
-                <div class="partido-linea">
-                    <span><b>${partido.hora}</b></span>
-                    <span>${partido.categoria}</span>
-                    <span>vs ${partido.rival}</span>
+                <div class="partido-item">
+                    <div class="partido-hora">
+                        ${partido.hora}
+                    </div>
+
+                    <div class="partido-info">
+                        <span class="partido-categoria">
+                            ${partido.categoria}
+                        </span>
+
+                        <strong>
+                            CW Petrer
+                            <span class="vs">VS</span>
+                            ${partido.rival}
+                        </strong>
+                    </div>
                 </div>
             `;
         });
@@ -478,9 +501,14 @@ function mostrarDetalle(fecha) { // Esta función muestra los detalles de los pa
         html += `</div>`;
     });
 
+    html += `</div>`;
     detalle.innerHTML = html;
+
+    detalle.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+    });
 }
-   
 
 function cerrarImagen(){ // Esta función cierra el lightbox de la galería, ocultando el contenedor del lightbox y deteniendo la visualización de la imagen grande */
     document.getElementById("lightbox").style.display = "none";
