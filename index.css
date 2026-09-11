@@ -16,7 +16,7 @@ html, body {
     flex-wrap: wrap;
 }
 
-.logo.sin{
+.logo{
     
     width: 60px;
 }
@@ -934,9 +934,11 @@ h1{
     width: 90%;
     margin: 20px auto;
     padding: 15px;
+    border: none;
     background: #272626;
     color: white;
     border-radius: 15px;
+    font: inherit;
     font-size: 20px;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -1141,6 +1143,10 @@ footer{
 }
 
 @media (max-width: 768px) {
+
+    .menu-movil {
+        display: block;
+    }
 
     /* TARJETAS EN MÓVIL */
     .contenedor {
@@ -1396,9 +1402,29 @@ footer{
 }
 
 
-@media (max-width: 480px) { /* en este bloque de estilos se ajusta aún más la sección de los partidos para que se vea bien en pantallas muy pequeñas, con un tamaño más compacto y un diseño más vertical */
+@media (max-width: 480px) { /* Calendario compacto sin perder la estructura semanal */
+    #contenido {
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    .seccion-box {
+        padding: 18px 10px;
+    }
+
     .calendario-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 3px;
+    }
+
+    .dia-calendario,
+    .nombre-dia,
+    .dia-vacio {
+        min-width: 0;
+        min-height: 36px;
+        padding: 6px 0;
+        border-radius: 6px;
+        font-size: 11px;
     }
 }
 
@@ -1460,13 +1486,6 @@ footer{
 @media (max-width: 768px) { /* esto sirve para esconder las barras laterales en pantallas pequeñas */
     .sidebar, .redes {
         display: none;
-    }
-}
-
-@media (max-width: 768px){ /*esto sirve para que en pantallas pequeñas los dias de la semana no se muestren */
-    .nombre-dia{
-        display: none;
-        
     }
 }
 
