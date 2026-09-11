@@ -133,7 +133,8 @@ function mostrarSeccion(seccion){
                         aria-label="Abrir foto ${numero} de ${listaImagenes.length}">
                     <img src="imagenes/galeria/${img}"
                          alt="Foto ${numero} del Club Waterpolo Petrer"
-                         loading="lazy">
+                         loading="lazy"
+                         decoding="async">
                 </button>
             `;
         });
@@ -343,19 +344,19 @@ if (seccion === "compras") {
             <div class="tienda">
 
                 <button type="button" class="producto" onclick="abrirProducto(0)">
-                    <img src="imagenes/productos/abanicos.jpg" alt="Abanicos del club">
+                    <img src="imagenes/productos/abanicos.jpg" alt="Abanicos del club" loading="lazy" decoding="async">
                     <h3>Abanicos</h3>
                     <p>Material oficial del club</p>
                 </button>
 
                 <button type="button" class="producto" onclick="abrirProducto(1)">
-                    <img src="imagenes/productos/bañador.jpg" alt="Bañador del club">
+                    <img src="imagenes/productos/bañador.jpg" alt="Bañador del club" loading="lazy" decoding="async">
                     <h3>Bañador</h3>
                     <p>Material oficial del club</p>
                 </button>
 
                 <button type="button" class="producto" onclick="abrirProducto(2)">
-                    <img src="imagenes/productos/equipacion.jpg" alt="Equipación del club">
+                    <img src="imagenes/productos/equipacion.jpg" alt="Equipación del club" loading="lazy" decoding="async">
                     <h3>Equipación</h3>
                     <p>Equipación oficial</p>
                 </button>
@@ -368,7 +369,9 @@ if (seccion === "compras") {
 
                     <img id="imagenGorro"
                         src="imagenes/productos/gorros-natacion.jpg"
-                        alt="Gorro de natación">
+                        alt="Gorro de natación"
+                        loading="lazy"
+                        decoding="async">
 
                     <button class="flecha-gorro derecha" onclick="cambiarGorro(1)">
                         ❯
@@ -378,7 +381,7 @@ if (seccion === "compras") {
 
                 </div>
                 <button type="button" class="producto" onclick="abrirProducto(4)">
-                    <img src="imagenes/productos/mochila.jpg" alt="Mochila del club">
+                    <img src="imagenes/productos/mochila.jpg" alt="Mochila del club" loading="lazy" decoding="async">
                     <h3>Mochila</h3>
                     <p>Material oficial del club</p>
                 </button>
