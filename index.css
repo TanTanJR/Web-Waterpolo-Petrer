@@ -726,7 +726,7 @@ h1{
 .sidebar{
     width: 100%;
     position: sticky;
-    top: 100px;
+    top: 120px; /* conserva la separación superior original */
 }
 
 .sidebar.izquierda{
@@ -735,9 +735,8 @@ h1{
 }
 
 .sponsors-viewport{
-    height: min(780px, calc(100vh - 170px)); /* carrusel más largo */
-    min-height: 560px;
-    padding-top: 10px; /* separa los logotipos del título */
+    height: 740px; /* antes eran 700px: solo lo alargamos un poco */
+    padding-top: 14px; /* separa los logotipos del título */
     overflow: hidden;
     box-sizing: border-box;
 }
@@ -805,7 +804,7 @@ h1{
 }
 
 .redes{
-    top: 100px;
+    top: 120px;
 
     display: flex;
     flex-direction: column;
