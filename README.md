@@ -103,6 +103,21 @@ La fecha debe escribirse en formato `AAAA-MM-DD`.
 
 Separar los datos del diseño permite actualizar el contenido sin buscarlo dentro de funciones largas ni repetirlo en varios archivos.
 
+## Panel de la directiva
+
+La ruta `/admin/login.html` permite a la directiva gestionar partidos, fotografías y productos mediante una cuenta autorizada de Supabase.
+
+La conexión se configura en Vercel con estas variables de entorno:
+
+```text
+SUPABASE_URL
+SUPABASE_ANON_KEY
+```
+
+La clave utilizada en el navegador debe ser pública (`publishable` o `anon`). Nunca debe utilizarse `service_role` en el frontend.
+
+Los permisos de escritura están protegidos mediante Supabase Auth y políticas RLS específicas para las tablas y el bucket de Waterpolo.
+
 ## Contacto del club
 
 - Correo: [waterpolopetrer@hotmail.com](mailto:waterpolopetrer@hotmail.com)
