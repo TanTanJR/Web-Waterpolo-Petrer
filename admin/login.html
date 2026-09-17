@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso directiva | Club Waterpolo Petrer</title>
+  <link rel="icon" type="image/png" href="../imagenes/logo.sin.png">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="admin-cabecera">
+    <div class="admin-marca">
+      <img src="../imagenes/logo.sin.png" alt="Logo Club Waterpolo Petrer">
+      <div>
+        <h1>Club Waterpolo Petrer</h1>
+        <p>Acceso de la directiva</p>
+      </div>
+    </div>
+    <a class="volver" href="../index.html">← Volver a la web</a>
+  </header>
+
+  <main class="admin-principal login-principal">
+    <section class="login-panel">
+      <h2>Iniciar sesión</h2>
+      <p>Introduce el correo y la contraseña de la directiva.</p>
+
+      <form id="form-login">
+        <div class="campo">
+          <label for="email-admin">Correo electrónico</label>
+          <input id="email-admin" type="email" autocomplete="username" required>
+        </div>
+
+        <div class="campo">
+          <label for="password-admin">Contraseña</label>
+          <input id="password-admin" type="password" autocomplete="current-password" required>
+        </div>
+
+        <button class="boton" type="submit">Entrar al panel</button>
+        <p id="estado-login" class="estado" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/admin-login.js"></script>
+</body>
+</html>
