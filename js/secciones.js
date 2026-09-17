@@ -57,8 +57,12 @@ function crearTiendaHTML() {
     }).join("");
 }
 
-function mostrarSeccion(seccion){
-    const contenido = document.getElementById("contenido"); // Aquí se muestra el contenido de cada sección según el botón pulsado */
+async function mostrarSeccion(seccion){
+    const contenido = document.getElementById("contenido");
+
+    if (seccion === "partidos" || seccion === "calendario") {
+        await cargarPartidosPublicos();
+    } // Aquí se muestra el contenido de cada sección según el botón pulsado */
     
     if(seccion === "horarios"){
         contenido.innerHTML = `
