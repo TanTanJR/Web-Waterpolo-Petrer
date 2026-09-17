@@ -1,0 +1,210 @@
+:root {
+  --rojo: #ff3232;
+  --rojo-oscuro: #c91818;
+  --oscuro: #1f1f1f;
+  --gris: #f3f4f6;
+  --borde: #d9dce1;
+  --exito: #157347;
+  --error: #b42318;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--oscuro);
+  background: linear-gradient(145deg, #f7f7f7, #c9c9c9);
+}
+
+.admin-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px clamp(20px, 4vw, 60px);
+  background: var(--oscuro);
+  color: white;
+}
+
+.admin-marca {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.admin-marca img {
+  width: 64px;
+  height: 64px;
+  padding: 6px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: white;
+}
+
+.admin-marca h1 { margin: 0; font-size: clamp(21px, 3vw, 30px); }
+.admin-marca p { margin: 4px 0 0; color: #ddd; }
+
+.admin-principal {
+  width: min(1120px, calc(100% - 32px));
+  margin: 32px auto 60px;
+}
+
+.login-principal {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 110px);
+}
+
+.panel,
+.login-panel {
+  padding: clamp(22px, 4vw, 38px);
+  border: 1px solid rgba(255,255,255,.75);
+  border-radius: 24px;
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 12px 35px rgba(0,0,0,.14);
+}
+
+.login-panel { width: min(460px, 100%); }
+.login-panel h2 { margin-top: 0; }
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 17px;
+}
+
+.campo label { font-weight: bold; }
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  background: white;
+  font: inherit;
+}
+
+textarea { min-height: 95px; resize: vertical; }
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid rgba(255,50,50,.18);
+  border-color: var(--rojo);
+}
+
+.boton {
+  padding: 12px 19px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--rojo);
+  color: white;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.boton:hover { background: var(--rojo-oscuro); }
+.boton:disabled { cursor: wait; opacity: .65; }
+.boton-secundario { background: #555; }
+.boton-peligro { background: var(--error); }
+.boton-pequeno { padding: 8px 12px; font-size: 14px; }
+
+.estado {
+  min-height: 24px;
+  margin: 16px 0 0;
+  font-weight: bold;
+}
+
+.estado.error { color: var(--error); }
+.estado.exito { color: var(--exito); }
+
+.admin-navegacion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.admin-navegacion button.activo { background: var(--oscuro); }
+
+.seccion-admin[hidden] { display: none; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 18px;
+}
+
+.form-grid .ancho-completo { grid-column: 1 / -1; }
+
+.acciones-formulario {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 8px 0 26px;
+}
+
+.lista-admin {
+  display: grid;
+  gap: 12px;
+}
+
+.item-admin {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  padding: 15px;
+  border: 1px solid var(--borde);
+  border-left: 5px solid var(--rojo);
+  border-radius: 14px;
+  background: var(--gris);
+}
+
+.item-admin img {
+  width: 90px;
+  height: 75px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: white;
+}
+
+.item-admin h3,
+.item-admin p { margin: 0 0 5px; }
+
+.item-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.sin-contenido {
+  padding: 25px;
+  border: 2px dashed var(--borde);
+  border-radius: 14px;
+  text-align: center;
+  color: #666;
+}
+
+.volver {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media (max-width: 700px) {
+  .admin-cabecera { align-items: flex-start; }
+  .admin-marca img { width: 50px; height: 50px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-grid .ancho-completo { grid-column: auto; }
+  .item-admin { grid-template-columns: 1fr; }
+  .item-admin img { width: 100%; height: 180px; }
+  .item-acciones { justify-content: flex-start; }
+}
