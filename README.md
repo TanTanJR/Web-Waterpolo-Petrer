@@ -116,6 +116,8 @@ SUPABASE_ANON_KEY
 
 La clave utilizada en el navegador debe ser pública (`publishable` o `anon`). Nunca debe utilizarse `service_role` en el frontend.
 
+Las dos variables deben habilitarse para `Preview` mientras se prueba esta rama y para `Production` antes de fusionarla con `main`.
+
 Los permisos de escritura están protegidos mediante Supabase Auth y políticas RLS específicas para las tablas y el bucket de Waterpolo.
 
 ## Contacto del club
