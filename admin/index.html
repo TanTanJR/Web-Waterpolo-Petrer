@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de directiva | Club Waterpolo Petrer</title>
+  <link rel="icon" type="image/png" href="../imagenes/logo.sin.png">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="admin-cabecera">
+    <div class="admin-marca">
+      <img src="../imagenes/logo.sin.png" alt="Logo Club Waterpolo Petrer">
+      <div>
+        <h1>Panel de la directiva</h1>
+        <p>Gestiona el contenido de la web</p>
+      </div>
+    </div>
+    <button id="cerrar-sesion" class="boton boton-secundario" type="button">Cerrar sesión</button>
+  </header>
+
+  <main class="admin-principal">
+    <nav class="admin-navegacion" aria-label="Secciones del panel">
+      <button class="boton activo" type="button" data-seccion="partidos">Partidos</button>
+      <button class="boton" type="button" data-seccion="galeria">Galería</button>
+      <button class="boton" type="button" data-seccion="productos">Productos</button>
+      <a class="boton" href="../index.html" target="_blank" rel="noopener noreferrer">Ver web</a>
+    </nav>
+
+    <section id="seccion-partidos" class="panel seccion-admin">
+      <h2>Partidos del calendario</h2>
+      <form id="form-partido">
+        <input id="partido-id" type="hidden">
+        <div class="form-grid">
+          <div class="campo">
+            <label for="partido-fecha">Fecha</label>
+            <input id="partido-fecha" type="date" required>
+          </div>
+          <div class="campo">
+            <label for="partido-hora">Hora</label>
+            <input id="partido-hora" type="time" required>
+          </div>
+          <div class="campo">
+            <label for="partido-categoria">Categoría</label>
+            <input id="partido-categoria" type="text" placeholder="Ej.: Infantil" required>
+          </div>
+          <div class="campo">
+            <label for="partido-rival">Rival</label>
+            <input id="partido-rival" type="text" required>
+          </div>
+          <div class="campo ancho-completo">
+            <label for="partido-ubicacion">Ubicación</label>
+            <input id="partido-ubicacion" type="text" placeholder="Piscina San Fernando, Petrer" required>
+          </div>
+          <label class="campo ancho-completo">
+            <span>Estado</span>
+            <select id="partido-activo">
+              <option value="true">Publicado</option>
+              <option value="false">Oculto</option>
+            </select>
+          </label>
+        </div>
+        <div class="acciones-formulario">
+          <button class="boton" type="submit">Guardar partido</button>
+          <button id="cancelar-partido" class="boton boton-secundario" type="button" hidden>Cancelar edición</button>
+        </div>
+        <p id="estado-partidos" class="estado" role="status" aria-live="polite"></p>
+      </form>
+      <div id="lista-partidos" class="lista-admin"></div>
+    </section>
+
+    <section id="seccion-galeria" class="panel seccion-admin" hidden>
+      <h2>Fotografías de la galería</h2>
+      <form id="form-galeria">
+        <input id="galeria-id" type="hidden">
+        <div class="form-grid">
+          <div class="campo">
+            <label for="galeria-titulo">Título opcional</label>
+            <input id="galeria-titulo" type="text">
+          </div>
+          <div class="campo">
+            <label for="galeria-alt">Descripción accesible</label>
+            <input id="galeria-alt" type="text" placeholder="Equipo durante un partido" required>
+          </div>
+          <div class="campo ancho-completo">
+            <label for="galeria-descripcion">Descripción opcional</label>
+            <textarea id="galeria-descripcion"></textarea>
+          </div>
+          <div class="campo">
+            <label for="galeria-imagen">Imagen</label>
+            <input id="galeria-imagen" type="file" accept="image/jpeg,image/png,image/webp">
+            <small>Obligatoria al crear. Opcional al editar.</small>
+          </div>
+          <label class="campo">
+            <span>Estado</span>
+            <select id="galeria-activo">
+              <option value="true">Publicada</option>
+              <option value="false">Oculta</option>
+            </select>
+          </label>
+        </div>
+        <div class="acciones-formulario">
+          <button class="boton" type="submit">Guardar fotografía</button>
+          <button id="cancelar-galeria" class="boton boton-secundario" type="button" hidden>Cancelar edición</button>
+        </div>
+        <p id="estado-galeria" class="estado" role="status" aria-live="polite"></p>
+      </form>
+      <div id="lista-galeria" class="lista-admin"></div>
+    </section>
+
+    <section id="seccion-productos" class="panel seccion-admin" hidden>
+      <h2>Material oficial</h2>
+      <form id="form-producto">
+        <input id="producto-id" type="hidden">
+        <div class="form-grid">
+          <div class="campo">
+            <label for="producto-nombre">Nombre</label>
+            <input id="producto-nombre" type="text" required>
+          </div>
+          <label class="campo">
+            <span>Estado</span>
+            <select id="producto-activo">
+              <option value="true">Publicado</option>
+              <option value="false">Oculto</option>
+            </select>
+          </label>
+          <div class="campo ancho-completo">
+            <label for="producto-descripcion">Descripción</label>
+            <textarea id="producto-descripcion"></textarea>
+          </div>
+          <div class="campo ancho-completo">
+            <label for="producto-imagenes">Imágenes</label>
+            <input id="producto-imagenes" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+            <small>Obligatorias al crear. Al editar, déjalo vacío para conservar las actuales.</small>
+          </div>
+        </div>
+        <div class="acciones-formulario">
+          <button class="boton" type="submit">Guardar producto</button>
+          <button id="cancelar-producto" class="boton boton-secundario" type="button" hidden>Cancelar edición</button>
+        </div>
+        <p id="estado-productos" class="estado" role="status" aria-live="polite"></p>
+      </form>
+      <div id="lista-productos" class="lista-admin"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>
