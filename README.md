@@ -4,6 +4,8 @@ Sitio web informativo del **Club Waterpolo Petrer**, desarrollado para presentar
 
 El proyecto está construido con HTML, CSS y JavaScript, sin frameworks externos. Su diseño se adapta a ordenadores, tabletas y teléfonos móviles.
 
+**[Ver la web publicada](https://web-waterpolo-petrer.vercel.app/)**
+
 ## Funcionalidades
 
 - Horarios de entrenamiento por día y categoría.
@@ -116,7 +118,7 @@ SUPABASE_ANON_KEY
 
 La clave utilizada en el navegador debe ser pública (`publishable` o `anon`). Nunca debe utilizarse `service_role` en el frontend.
 
-Las dos variables deben habilitarse para `Preview` mientras se prueba esta rama y para `Production` antes de fusionarla con `main`.
+Configura las variables en los entornos de Vercel donde se utilice el panel (`Preview` y/o `Production`).
 
 Los permisos de escritura están protegidos mediante Supabase Auth y políticas RLS específicas para las tablas y el bucket de Waterpolo.
 
@@ -128,4 +130,4 @@ Los permisos de escritura están protegidos mediante Supabase Auth y políticas 
 
 ## Autor
 
-Proyecto desarrollado por **Tristán Vecina** como parte de su aprendizaje en Desarrollo de Aplicaciones Web.
+Proyecto desarrollado por **Tristán Pérez Vecina** como parte de su aprendizaje en Desarrollo de Aplicaciones Web.
