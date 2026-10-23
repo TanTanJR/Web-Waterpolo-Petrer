@@ -30,27 +30,61 @@ function agruparPartidosPublicos(filas) {
     return Array.from(jornadas.values());
 }
 
+
 async function cargarPartidosPublicos() {
     if (partidosSupabaseCargados) return;
 
     if (!cargaPartidosSupabase) {
         cargaPartidosSupabase = (async () => {
-            const respuestaConfiguracion = await fetch("/api/configuracion-supabase");
-            const configuracion = await respuestaConfiguracion.json();
 
-            if (!respuestaConfiguracion.ok) {
-                throw new Error(configuracion.error || "No se pudo cargar la configuración.");
+            let configuracion;
+
+            // Detectamos si estamos trabajando con Live Server.
+            const esLocal = ["localhost", "127.0.0.1"]
+                .includes(window.location.hostname);
+
+            if (esLocal) {
+                // En local utilizamos config.local.js.
+                configuracion = window.SUPABASE_CONFIG_LOCAL;
+
+                if (!configuracion?.url || !configuracion?.clavePublica) {
+                    throw new Error(
+                        "No se ha cargado la configuración local de Supabase."
+                    );
+                }
+
+            } else {
+                // En Vercel utilizamos la función API.
+                const respuestaConfiguracion = await fetch(
+                    "/api/configuracion-supabase"
+                );
+
+                if (!respuestaConfiguracion.ok) {
+                    throw new Error(
+                        "No se pudo obtener la configuración de Supabase."
+                    );
+                }
+
+                configuracion = await respuestaConfiguracion.json();
             }
 
+            // Construimos la consulta a Supabase.
             const urlBase = configuracion.url.replace(/\/$/, "");
-            const consulta = new URL(`${urlBase}/rest/v1/waterpolo_partidos`);
+            const consulta = new URL(
+                `${urlBase}/rest/v1/waterpolo_partidos`
+            );
+
             consulta.searchParams.set(
                 "select",
                 "fecha,hora,categoria,rival,ubicacion,tipo"
             );
             consulta.searchParams.set("activo", "eq.true");
-            consulta.searchParams.set("order", "fecha.asc,hora.asc");
+            consulta.searchParams.set(
+                "order",
+                "fecha.asc,hora.asc"
+            );
 
+            // Solicitamos los partidos publicados.
             const respuestaPartidos = await fetch(consulta, {
                 headers: {
                     apikey: configuracion.clavePublica,
@@ -59,16 +93,21 @@ async function cargarPartidosPublicos() {
             });
 
             if (!respuestaPartidos.ok) {
-                throw new Error("No se pudieron cargar los partidos publicados.");
+                const detalle = await respuestaPartidos.text();
+                throw new Error(
+                    `Error de Supabase (${respuestaPartidos.status}): ${detalle}`
+                );
             }
 
             const filas = await respuestaPartidos.json();
+
+            console.log(
+                "Partidos recibidos desde Supabase:",
+                filas.length
+            );
+
             const jornadasSupabase = agruparPartidosPublicos(filas);
 
-            /*
-             * Supabase es la fuente del panel de administración. Los datos locales
-             * se mantienen como respaldo para que la web no quede vacía si falla.
-             */
             if (jornadasSupabase.length > 0) {
                 partidosCalendario.splice(
                     0,
@@ -78,9 +117,13 @@ async function cargarPartidosPublicos() {
             }
 
             partidosSupabaseCargados = true;
+
         })().catch(error => {
             cargaPartidosSupabase = null;
-            console.error("Se usarán los partidos locales:", error);
+            console.error(
+                "Error al cargar los partidos de Supabase:",
+                error
+            );
         });
     }
 

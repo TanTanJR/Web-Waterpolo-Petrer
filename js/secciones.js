@@ -311,16 +311,18 @@ async function mostrarSeccion(seccion){
                 <button type="button" onclick="cambiarMes(1)" aria-label="Mes siguiente">🢂</button>
             </div>
 
-            <div id="calendario" class="calendario-grid"></div>
+           <div id="calendario" class="calendario-grid"></div>
 
-            <h3 class="titulo-pendientes">📋 Partidos pendientes de fecha</h3>
 
-            <div id="partidosPendientes" class="lista-partidos"></div>
+            <div id="detallePartido" class="detalle-partido"></div>
+
+            <!-- Partidos que todavía no tienen fecha asignada -->
+           
          
     `;
 
     generarCalendario();
-    mostrarPartidosPendientes();
+    
 }
 
 if (seccion === "compras") {
