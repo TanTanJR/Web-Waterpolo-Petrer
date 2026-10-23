@@ -129,10 +129,18 @@ function renderPartidos() {
 
   lista.innerHTML = partidos.map((partido) => `
     <article class="item-admin">
-      <div><strong>${textoSeguro(partido.hora.slice(0, 5))}</strong></div>
+     <div>
+      <strong>
+        ${partido.hora ? textoSeguro(partido.hora.slice(0, 5)) : "Por confirmar"}
+      </strong>
+    </div>
       <div>
         <h3>${textoSeguro(partido.categoria)} · CW Petrer vs ${textoSeguro(partido.rival)}</h3>
-        <p>${textoSeguro(partido.fecha)} · ${textoSeguro(partido.ubicacion)}</p>
+        <p>
+            ${partido.fecha ? textoSeguro(partido.fecha) : "Pendiente de fecha"}
+            · ${textoSeguro(partido.ubicacion)}
+            · ${partido.tipo === "fuera" ? "🚌 Fuera de casa" : "🏠 En casa"}
+        </p>
         <small>${partido.activo ? "Publicado" : "Oculto"}</small>
       </div>
       <div class="item-acciones">
@@ -152,14 +160,17 @@ function limpiarPartido() {
 document.getElementById("form-partido").addEventListener("submit", async (evento) => {
   evento.preventDefault();
   const id = document.getElementById("partido-id").value;
-  const payload = {
-    fecha: document.getElementById("partido-fecha").value,
-    hora: document.getElementById("partido-hora").value,
+  
+const payload = {
+    fecha: document.getElementById("partido-fecha").value || null,
+    hora: document.getElementById("partido-hora").value || null,
     categoria: document.getElementById("partido-categoria").value.trim(),
     rival: document.getElementById("partido-rival").value.trim(),
     ubicacion: document.getElementById("partido-ubicacion").value.trim(),
+    tipo: document.getElementById("partido-tipo").value,
     activo: document.getElementById("partido-activo").value === "true",
-  };
+};
+
 
   mostrarEstado("estado-partidos", "Guardando…");
 
@@ -190,8 +201,9 @@ document.getElementById("lista-partidos").addEventListener("click", async (event
     if (!partido) return;
 
     document.getElementById("partido-id").value = partido.id;
-    document.getElementById("partido-fecha").value = partido.fecha;
-    document.getElementById("partido-hora").value = partido.hora.slice(0, 5);
+    document.getElementById("partido-fecha").value = partido.fecha || "";
+    document.getElementById("partido-hora").value = partido.hora?.slice(0, 5) || "";
+    document.getElementById("partido-tipo").value = partido.tipo || "casa";
     document.getElementById("partido-categoria").value = partido.categoria;
     document.getElementById("partido-rival").value = partido.rival;
     document.getElementById("partido-ubicacion").value = partido.ubicacion;

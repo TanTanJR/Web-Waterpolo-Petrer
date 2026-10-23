@@ -83,7 +83,8 @@ function mostrarDetalle(fecha) { // Muestra los partidos del día con el mismo d
                 </div>
 
                 <div class="ubicacion-partido">
-                    📍 ${jornada.ubicacion}
+                    ${jornada.tipo === "fuera" ? "🚌 Fuera de casa" : "🏠 En casa"}
+                    · 📍 ${jornada.ubicacion}
                 </div>
         `;
 
@@ -91,8 +92,8 @@ function mostrarDetalle(fecha) { // Muestra los partidos del día con el mismo d
             html += `
                 <div class="partido-item">
                     <div class="partido-hora">
-                        ${partido.hora}
-                    </div>
+                    ${partido.hora || "Por confirmar"}
+                </div>
 
                     <div class="partido-info">
                         <span class="partido-categoria">

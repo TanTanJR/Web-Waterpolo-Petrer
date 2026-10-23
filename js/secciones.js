@@ -132,10 +132,14 @@ async function mostrarSeccion(seccion){
     const hoy = new Date();
     hoy.setHours(0, 0, 0, 0);
 
-    const proximosPartidos = partidosCalendario.filter(jornada => {
+    const proximosPartidos = partidosCalendario
+    .filter(jornada => {
+        if (!jornada.fecha) return false;
+
         const fechaPartido = new Date(jornada.fecha + "T00:00:00");
         return fechaPartido >= hoy;
-    });
+    })
+    .sort((a, b) => a.fecha.localeCompare(b.fecha));
 
     let html = `
         <div class="seccion-box">
@@ -177,8 +181,9 @@ async function mostrarSeccion(seccion){
                         📅 ${fechaTexto}
                     </div>
 
-                    <div class="ubicacion-partido">
-                        📍 ${jornada.ubicacion}
+                   <div class="ubicacion-partido">
+                        ${jornada.tipo === "fuera" ? "🚌 Fuera de casa" : "🏠 En casa"}
+                        · 📍 ${jornada.ubicacion}
                     </div>
             `;
 
@@ -188,7 +193,7 @@ async function mostrarSeccion(seccion){
                     <div class="partido-item">
 
                         <div class="partido-hora">
-                            ${partido.hora}
+                            ${partido.hora || "Por confirmar"}
                         </div>
 
                         <div class="partido-info">
@@ -308,12 +313,14 @@ async function mostrarSeccion(seccion){
 
             <div id="calendario" class="calendario-grid"></div>
 
-            <div id="detallePartido" class="detalle-partido"></div>
-        </div>
+            <h3 class="titulo-pendientes">📋 Partidos pendientes de fecha</h3>
+
+            <div id="partidosPendientes" class="lista-partidos"></div>
          
     `;
 
     generarCalendario();
+    mostrarPartidosPendientes();
 }
 
 if (seccion === "compras") {
@@ -333,4 +340,65 @@ if (seccion === "compras") {
             block: "start"
         });
     }, 100);
+
+function mostrarPartidosPendientes() {
+    const contenedor = document.getElementById("partidosPendientes");
+
+    if (!contenedor) return;
+
+    // Seleccionamos únicamente las jornadas sin fecha.
+    const pendientes = partidosCalendario.filter(jornada => !jornada.fecha);
+
+    if (pendientes.length === 0) {
+        contenedor.innerHTML = `
+            <p class="sin-contenido">
+                No hay partidos pendientes de fecha.
+            </p>
+        `;
+        return;
+    }
+
+    let html = "";
+
+    pendientes.forEach(jornada => {
+        html += `
+            <div class="jornada-partidos">
+                <div class="fecha-partido">
+                    📅 Fecha por confirmar
+                </div>
+
+                <div class="ubicacion-partido">
+                    ${jornada.tipo === "fuera" ? "🚌 Fuera de casa" : "🏠 En casa"}
+                    · 📍 ${jornada.ubicacion}
+                </div>
+        `;
+
+        jornada.partidos.forEach(partido => {
+            html += `
+                <div class="partido-item">
+                    <div class="partido-hora">
+                        ${partido.hora || "Por confirmar"}
+                    </div>
+
+                    <div class="partido-info">
+                        <span class="partido-categoria">
+                            ${partido.categoria}
+                        </span>
+
+                        <strong>
+                            CW Petrer
+                            <span class="vs">VS</span>
+                            ${partido.rival}
+                        </strong>
+                    </div>
+                </div>
+            `;
+        });
+
+        html += `</div>`;
+    });
+
+    contenedor.innerHTML = html;
+}
+
 }

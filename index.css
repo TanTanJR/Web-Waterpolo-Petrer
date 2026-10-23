@@ -463,6 +463,33 @@ h1{
     white-space: nowrap;
 }
 
+/* Horarios de los partidos */
+.partido-hora {
+    min-width: 115px;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+/* PARTIDOS PENDIENTES DE FECHA */
+
+.titulo-pendientes {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 45px 0 20px;
+    color: #222;
+}
+
+#partidosPendientes {
+    margin-bottom: 25px;
+}
+
+#partidosPendientes .jornada-partidos {
+    margin-bottom: 20px;
+}
+
+
                                 /* Sección de la galería de fotos */
 
 .galeria { /* esta sección es la de la galería de fotos, con una cuadrícula de fotos del club */

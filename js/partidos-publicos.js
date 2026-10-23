@@ -10,18 +10,18 @@ function agruparPartidosPublicos(filas) {
     const jornadas = new Map();
 
     filas.forEach(partido => {
-        const clave = `${partido.fecha}|${partido.ubicacion}`;
-
+       const clave = `${partido.fecha}|${partido.ubicacion}|${partido.tipo}`;
         if (!jornadas.has(clave)) {
             jornadas.set(clave, {
-                fecha: partido.fecha,
-                ubicacion: partido.ubicacion,
-                partidos: []
-            });
+            fecha: partido.fecha,
+            ubicacion: partido.ubicacion,
+            tipo: partido.tipo || "casa",
+            partidos: []
+        }); 
         }
 
         jornadas.get(clave).partidos.push({
-            hora: partido.hora.slice(0, 5),
+            hora: partido.hora?.slice(0, 5) || "",
             categoria: partido.categoria,
             rival: partido.rival
         });
@@ -46,7 +46,7 @@ async function cargarPartidosPublicos() {
             const consulta = new URL(`${urlBase}/rest/v1/waterpolo_partidos`);
             consulta.searchParams.set(
                 "select",
-                "fecha,hora,categoria,rival,ubicacion"
+                "fecha,hora,categoria,rival,ubicacion,tipo"
             );
             consulta.searchParams.set("activo", "eq.true");
             consulta.searchParams.set("order", "fecha.asc,hora.asc");
